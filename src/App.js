@@ -5,7 +5,11 @@ import LandingPage from './pages/LandingPage';
 import All_intern from './pages/All_intern';
 import MoreDetails from './pages/MoreDetails';
 
+//import custom hook
+import Get from './Hooks/Get';
+
 function App() {
+  const {all_intern}=Get()
   return (
     <div>
       <BrowserRouter>

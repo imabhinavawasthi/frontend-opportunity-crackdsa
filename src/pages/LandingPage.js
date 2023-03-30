@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { BiSearch } from 'react-icons/bi';
-import {Typewriter,Cursor} from 'react-simple-typewriter'
+import {Typewriter,cursor} from 'react-simple-typewriter'
 
 import Featuerd from '../components/Featuerd';
 const LandingPage = () => {

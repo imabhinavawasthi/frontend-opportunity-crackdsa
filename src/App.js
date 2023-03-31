@@ -9,14 +9,14 @@ import MoreDetails from './pages/MoreDetails';
 import Get from './Hooks/Get';
 
 function App() {
-  const {frontend_intern,backend_intern,full_stack}=Get()
+  const {frontend_intern,backend_intern,full_stack,loading,category,all_intern}=Get()
   return (
     <div>
       <BrowserRouter>
       <Routes>
-  <Route path='/' element={<LandingPage frontend_intern={frontend_intern} backend_intern={backend_intern} full_stack={full_stack}/>} />
-  <Route path=':catogery all_intern' element={<All_intern/>} />
-  <Route path='details'  element={<MoreDetails/>}/> 
+  <Route exact path='/' element={<LandingPage frontend_intern={frontend_intern} backend_intern={backend_intern} full_stack={full_stack} loading={loading}/>} />
+  <Route exact path='/:id'  element={<MoreDetails internships={all_intern} loading={loading}/>}/> 
+  <Route exact path='/:catogery/all_intern' element={<All_intern internships={category==='full stack'?full_stack:(category==='frontend'?frontend_intern:backend_intern)}/> } />
 
       </Routes>
       </BrowserRouter>

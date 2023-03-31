@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
  import Card from "./Card"
 import dummy_data from "../Dummydata"
 
-const Featuerd = ({catogery}) => {
+const Featuerd = ({catogery,internship}) => {
   return (
     <>
     <div className='flex flex-row pt-[50px] justify-between'>
@@ -10,7 +10,7 @@ const Featuerd = ({catogery}) => {
    <NavLink to={`${catogery} all_intern`}> <p className='text-xl text-blue-500 cursor-pointer capitalize hover:text-blue-800 '>see  all</p></NavLink>
     </div>
     <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-6 sm:px-5 '>
-        {dummy_data.map((data,index)=>{
+        {internship.map((data,index)=>{
           return <Card data={data} key={index}/>
         })}
     </div>

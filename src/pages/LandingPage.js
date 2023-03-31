@@ -3,7 +3,7 @@ import { BiSearch } from 'react-icons/bi';
 import {Typewriter,cursor} from 'react-simple-typewriter'
 
 import Featuerd from '../components/Featuerd';
-const LandingPage = () => {
+const LandingPage = ({frontend_intern, backend_intern, full_stack}) => {
     const [category,setcategory]=useState('')
    
     
@@ -20,8 +20,9 @@ const LandingPage = () => {
       
       <h1 className='text-center poppins-font font-semibold lg:text-[40px] text-[23px] md:text-[30px] mt-4 mx-[15px]'>Top Internships Available Now</h1>
     <div className='lg:mx-[45px] mx-[22px] mt-4'>
-      <Featuerd catogery='Frontend Developer'/>
-      <Featuerd  catogery='Backend Developer'/>
+    <Featuerd catogery='Full-stack Developer' internship={full_stack} />
+      <Featuerd catogery='Frontend Developer' internship={frontend_intern} />
+      <Featuerd  catogery='Backend Developer' internship={backend_intern}/>
 
     </div>
     </div>

@@ -9,12 +9,12 @@ import MoreDetails from './pages/MoreDetails';
 import Get from './Hooks/Get';
 
 function App() {
-  const {all_intern}=Get()
+  const {frontend_intern,backend_intern,full_stack}=Get()
   return (
     <div>
       <BrowserRouter>
       <Routes>
-  <Route path='/' element={<LandingPage/>} />
+  <Route path='/' element={<LandingPage frontend_intern={frontend_intern} backend_intern={backend_intern} full_stack={full_stack}/>} />
   <Route path=':catogery all_intern' element={<All_intern/>} />
   <Route path='details'  element={<MoreDetails/>}/> 
 

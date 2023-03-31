@@ -16,7 +16,7 @@ function set (all_intern){
    useEffect(()=>{
     async function get(){
         try{
-       const res=await fetch(base_url+'/jobs', { mode: 'no-cors'})
+       const res=await fetch(base_url+'/jobs')
        const data=res .json()
        setall_intern(data)
        console.log(all_intern)

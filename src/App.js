@@ -17,6 +17,7 @@ function App() {
   <Route path='/' element={<LandingPage/>} />
   <Route path=':catogery all_intern' element={<All_intern/>} />
   <Route path='details'  element={<MoreDetails/>}/> 
+
       </Routes>
       </BrowserRouter>
     </div>

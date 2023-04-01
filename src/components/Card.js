@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
-//import logo
-import logo from '../images/logo192.png'
 
 const Card = ({data}) => {
   return (
@@ -15,7 +13,7 @@ const Card = ({data}) => {
     <p className='font-Poppins p-2'> Duration: {data.duration}</p>
     <p className='font-Poppins p-2 capitalize'>Location: {data.location}</p>
     <p className='font-Poppins p-2'>Last date to apply: {data.lastdate}</p>
-   <Link to={data._id} ><p className='content-center  underline text-[#306AFF] hover:text-blue-800 flex justify-center pb-2'>View More</p></Link> 
+   <NavLink to={`/${data._id}`} ><p className='content-center  underline text-[#306AFF] hover:text-blue-800 flex justify-center pb-2'>View More</p></NavLink> 
     </div>
 </div>
   )

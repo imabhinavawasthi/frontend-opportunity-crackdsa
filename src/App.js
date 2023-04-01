@@ -8,6 +8,7 @@ import Admin from './pages/Admin';
 
 //import custom hook
 import Get from './Hooks/Get';
+import Form from './components/Form';
 
 function App() {
   const { frontend_intern, backend_intern, full_stack, loading, category} = Get()
@@ -19,6 +20,7 @@ function App() {
           <Route exact path=':id' element={<MoreDetails />} />
           <Route exact path=':catogery/all_intern' element={<All_intern internships={category === 'full stack' ? full_stack : (category === 'frontend' ? frontend_intern : backend_intern)} />} />
           <Route exact path='/admin' element={<Admin/>}/>
+          <Route exact path='/newpost' element={<Form/>}/>
         </Routes>
       </BrowserRouter>
     </div>

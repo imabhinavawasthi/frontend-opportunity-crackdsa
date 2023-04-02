@@ -3,7 +3,8 @@ import React from 'react'
 const Form = () => {
   return (
     <div className='bg-[#110A60] text-white min-h-screen p-5 flex flex-col items-center min-w-full'>
-            <h2 className="text-3xl  font-semibold font-Poppins">Post New Opportunity</h2>
+            <div className='flex flex-col lg:flex-row'><h2 className="text-3xl  font-semibold font-Poppins my-2">Post New Opportunity</h2>
+            <button className='bg-green-500 lg:absolute right-0 mr-4'>Create New Admin</button></div>
             <div className="flex flex-col w-[90%]">
                 <label htmlFor="title" className='text-lg'>Internship Title</label>
                 <input className="inp"  type="text" placeholder="Internship Title" id="title" name="title" />
@@ -27,7 +28,7 @@ const Form = () => {
                 <input className="inp" type="text" placeholder="Category" id="tags" name="tags" />
                 <label  htmlFor="file" className='text-lg'>Image Upload</label>
                 <input className="text-black" type="file" id="file" name="file" />
-                <button className="bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[25%]  active:scale-105" >Post</button>
+                <button className="bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" >Post</button>
             </div>
     </div>
   )

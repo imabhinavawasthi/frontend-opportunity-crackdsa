@@ -2,7 +2,7 @@ import React from 'react'
 
 const Form = () => {
   return (
-    <div className='bg-[#110A60] text-white min-h-screen p-5 flex flex-col items-center min-w-full'>
+    <div className='bg-slate-100 text-black min-h-screen p-5 flex flex-col items-center min-w-full'>
             <div className='flex flex-col lg:flex-row'><h2 className="text-3xl  font-semibold font-Poppins my-2">Post New Opportunity</h2>
             <button className='bg-green-500 lg:absolute right-0 mr-4'>Create New Admin</button></div>
             <div className="flex flex-col w-[90%]">

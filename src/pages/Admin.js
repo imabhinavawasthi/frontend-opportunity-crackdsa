@@ -10,7 +10,7 @@ const Admin = () => {
   }
   return (
     <div className='App'>
-      <Login set1={set1}/>
+      {log?<Form/>:<Login set1={set1}/>}
     </div>
   )
 }

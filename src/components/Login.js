@@ -25,15 +25,14 @@ const Login = ({set1}) => {
         setError(data)
        if(typeof(data)==='object'){
         localStorage.setItem('token',data.token)
-        console.log(data)
-       }
+     }
         setload(false)
    
         
       }catch(err){
       }
   }
-  console.log(error)
+
    setTimeout(() => {
     if(error==='email or password is wrong'){
     setEmail('')
@@ -46,9 +45,9 @@ const Login = ({set1}) => {
    useEffect(()=>{
       if (localStorage.getItem('token')!==null){
         set1(localStorage.getItem('token'))
-        console.log(localStorage.getItem('token'))
+    
       }
-   },[])
+   },[error])
     return (
         <>
     {(!load)?<h2 

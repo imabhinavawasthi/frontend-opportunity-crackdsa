@@ -7,7 +7,7 @@ const Form = () => {
     tags:"",
     skills:'',
     requirements:'',
-    description:'',
+    desc:'',
     startdate:'',
     lastdate:'',
     stipend:'',
@@ -31,15 +31,17 @@ async function post (e){
   e.preventDefault()
 
 let form=new FormData(document.getElementById('form'))
-    console.log(form)
-    console.log(typeof(token))
+form.set('live',live);
+form.set('exclusive',exclusive);
+    // console.log(form.get('live'),live)
+    // console.log(token)
   try{
     const options={
       method: 'POST',
-      headers: {'Content-Type': 'application/json',
-                'Authentication':`Bearer ${token}`
+      headers: {
+                'Authorization':`Bearer ${token}`
     },
-      body: form
+      body: form,
   }
 
   const response=await fetch('https://opportunity.run-ap-south1.goorm.site/jobs', options)
@@ -67,7 +69,7 @@ let form=new FormData(document.getElementById('form'))
                 <label  htmlFor="requirements" className='text-lg'>Requirements</label>
                 <input className="inp" type="text" placeholder="Requirements" id="requirements" name="requirements" value={data.requirements} onChange={handlechange}/>
                 <label  htmlFor="description" className='text-lg'>Description</label>
-                <input className="inp" type="text" placeholder="Description" id="description" name="description" value={data.description} onChange={handlechange}/>
+                <input className="inp" type="text" placeholder="Description" id="description" name="desc" value={data.description} onChange={handlechange}/>
                 <label  htmlFor="startdate" className='text-lg'>Start Date</label>
                 <input className="inp" type="date" placeholder="Start Date" id="startdate" name="startdate" value={data.startdate} onChange={handlechange}/>
                 <label  htmlFor="lastdate" className='text-lg'>Last Date To Apply</label>
@@ -81,18 +83,18 @@ let form=new FormData(document.getElementById('form'))
                 <label  htmlFor="url" className='text-lg'>URL</label>
                 <input className="inp" type="url" placeholder="Enter URL" id="url" name="url" value={data.url} onChange={handlechange}/>
                 <div className='flex justify-start'>
-                <input className="w-5 mx-1" type="checkbox" id="live" name="live" onChange={(e)=>{
+                <input className="w-5 mx-1" type="checkbox" id="live" name="live"  onChange={(e)=>{
                   setlive(e.target.checked)
                 }}/>
                 <label  htmlFor="live" className='text-lg pr-10'>Live</label>
-                <input className="w-5 mx-1" type="checkbox" id="exclusive" name="exclusive" onChange={(e)=>{
+                <input className="w-5 mx-1" type="checkbox" id="exclusive"   name="exclusive" onChange={(e)=>{
                   setexclusive(e.target.checked)
                 }}/>
                 <label  htmlFor="exclusive" className='text-lg'>Exclusive</label>
                 </div>
                 
                 <label  htmlFor="file" className='text-lg'>Image Upload</label>
-                <input className="text-black" type="file" id="file" name="file" onChange={(e)=>{
+                <input className="text-black" type="file" id="file" name="file"onChange={(e)=>{
                   setfile(e.target.files[0])
                 }}/>
                 <button className="bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={post} >Post</button>

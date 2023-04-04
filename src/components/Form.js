@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CreateAdmin from './CreateAdmin'
 
 const Form = () => {
   const [data,setData]=useState({
@@ -19,6 +20,7 @@ const Form = () => {
   const [live, setlive]=useState(false)
   const [exclusive, setexclusive]=useState(false)
   const [file, setfile]=useState()
+  const [show,setShow]=useState(false)
   function handlechange(e){
     const {name, value}=e.target;
     setData((prev)=>({
@@ -54,9 +56,10 @@ form.set('exclusive',exclusive);
 
 
   return (
+    <>
     <div className='bg-slate-100 text-black min-h-screen p-5 flex flex-col items-center min-w-full'>
             <div className='flex flex-col lg:flex-row'><h2 className="text-3xl  font-semibold font-Poppins my-2">Post New Opportunity</h2>
-            <button className='bg-green-500 lg:absolute right-0 mr-4'>Create New Admin</button></div>
+            <button className='bg-green-500 lg:absolute right-0 mr-4' onClick={()=>{setShow(true)}}>Create New Admin</button></div>
             <form  id='form' method='POST' encType="multipart/form-data"  className="flex flex-col w-[90%] px-12">
                 <label htmlFor="title" className='text-lg'>Internship Title</label>
                 <input className="inp"  type="text" placeholder="Internship Title" id="title" name="title" value={data.title} onChange={handlechange}/>
@@ -99,7 +102,10 @@ form.set('exclusive',exclusive);
                 }}/>
                 <button className="bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={post} >Post</button>
             </form>
+            
     </div>
+    <CreateAdmin onClose={()=>{setShow(false)}} show={show}/>
+    </>
   )
 }
 

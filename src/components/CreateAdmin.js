@@ -5,7 +5,7 @@ const CreateAdmin = ({show,onClose}) => {
     const token=localStorage.getItem('token')
     async function create(e){
         e.preventDefault();
-        let form=new FormData(document.getElementById('form'))
+        let form=new FormData(document.getElementById('form2'))
         try{
             const options={
               method: 'POST',
@@ -35,7 +35,7 @@ const CreateAdmin = ({show,onClose}) => {
             <button className='bg-red-100 p-2 text-sm' onClick={onClose}>❌</button>
         </div>
         <div>
-            <form className='flex flex-col pb-2' id='form' method='POST' encType="multipart/form-data">
+            <form className='flex flex-col pb-2' id='form2' method='POST' encType="multipart/form-data">
                 <label htmlFor="name" className='text-lg'>Name</label>
                 <input type="text" name='name' id='name' className='border-[2px] border-black border-solid p-2' placeholder='Enter Name'/>
                 <label htmlFor="email" className='text-lg'>Email</label>

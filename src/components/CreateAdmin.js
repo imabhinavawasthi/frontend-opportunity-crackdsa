@@ -3,22 +3,29 @@ import React from 'react'
 const CreateAdmin = ({show,onClose}) => {
 
     const token=localStorage.getItem('token')
-    async function create(e){
+  async function create(e){
         e.preventDefault();
-        let form=new FormData(document.getElementById('form'))
+        console.log(document.getElementById('newAdminform'))
+        let form=new FormData(document.getElementById('newAdminform'))
+        let params = new URLSearchParams(form).toString();
+        // console.log(form)
+        // console.log(form.get('name'))
         try{
-            const options={
+
+            const options={ 
               method: 'POST',
+
               headers: {
+                'Content-Type':'application/x-www-form-urlencoded',
                         'Authorization':`Bearer ${token}`
             },
-              body: form,
+              body: params,
           }
         
           const response=await fetch('https://opportunity.run-ap-south1.goorm.site/admin/newadmin', options)
           const data=await response.json();
           console.log(data)
-          onClose()
+          // onClose()
           }catch(err){
             console.log(err.message)
           }
@@ -35,13 +42,13 @@ const CreateAdmin = ({show,onClose}) => {
             <button className='bg-red-100 p-2 text-sm' onClick={onClose}>❌</button>
         </div>
         <div>
-            <form className='flex flex-col pb-2' id='form' method='POST' encType="multipart/form-data">
+            <form className='flex flex-col pb-2' id='newAdminform' method='POST'>
                 <label htmlFor="name" className='text-lg'>Name</label>
-                <input type="text" name='name' id='name' className='border-[2px] border-black border-solid p-2' placeholder='Enter Name'/>
+                <input type="text" name='name' id='adminName' className='border-[2px] border-black border-solid p-2' placeholder='Enter Name'/>
                 <label htmlFor="email" className='text-lg'>Email</label>
-                <input type="email" name='email' id='email' className='border-[2px] border-black border-solid p-2' placeholder='yourexample@gmail.com'/>
+                <input type="email" name='email' id='admiNEmail' className='border-[2px] border-black border-solid p-2' placeholder='yourexample@gmail.com'/>
                 <label htmlFor="password" className='text-lg'>Password</label>
-                <input type="password" name='password' id='password' className='border-[2px] border-black border-solid p-2 mb-4' placeholder='******'/>
+                <input type="password" name='password' id='adminPassword' className='border-[2px] border-black border-solid p-2 mb-4' placeholder='******'/>
                 <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-2 py-1 font-Poppins hover:bg-blue-400' onClick={create}>Create Admin</button>
             </form>
         </div>

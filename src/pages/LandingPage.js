@@ -5,7 +5,7 @@ import { Typewriter, cursor } from 'react-simple-typewriter'
 import Featuerd from '../components/Featuerd';
 const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) => {
   const [category, setcategory] = useState('')
-  const [search,setSearch]=useState('Search By Skills')
+  const [search,setSearch]=useState('By Skills')
   const [searching,setSearching]=useState(false)
   const [data,setdata]=useState([])
   const onOptionChangeHandler = (event) => {
@@ -17,7 +17,7 @@ const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) =
     
     try{
 
-      if(search==='Search By Skills'){
+      if(search==='By Skills'){
         const res=await fetch(`https://opportunity.run-ap-south1.goorm.site/jobs?skills=${category}`)
         const data=await res.json()
         setSearching(true)
@@ -52,11 +52,11 @@ const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) =
           <BiSearch onClick={fetchsearch} className='md:text-[44px] text-[25px] h-[30px] text-[#110a60] bg-slate-200 md:h-[50px]  mb-[9px] rounded-l-[30px] pl-[11px] cursor-pointer' />
           <div className='relative '>
             <select onChange={onOptionChangeHandler} 
-            className='absolute md:right-3 right-2 hover:text-gray-200 bg-[#110a60] text-white md:px-[14px] px-[8px] md:py-1 py-0 rounded-2xl md:top-[10px] top-[5px] md:text-base text-sm cursor-pointer'>
-              <option>Search By Skills</option>
-              <option>Search By Category</option>
+            className='absolute max-md:w-[80px] md:right-3 right-2 hover:text-gray-200 bg-[#110a60] text-white md:px-[14px] px-[3px] md:py-1 py-0 rounded-2xl md:top-[10px] top-[5px] md:text-base text-sm cursor-pointer'>
+              <option>By Skills</option>
+              <option>By Category</option>
             </select>
-            <input name='search-type' value={category} onKeyUp={(e)=>{if(e.key==='Enter'){fetchsearch()}}} className='md:h-[50px] h-[30px] md:w-[620px]  w-[260px] md:text-2xl text-lg font-semibold  bg-slate-200 rounded-r-[30px] px-5' onChange={(e) => { setcategory(e.target.value) }} /></div>
+            <input name='search-type' placeholder='Press enter to search' value={category} onKeyUp={(e)=>{if(e.key==='Enter'){fetchsearch()}}} className='md:h-[50px] h-[30px] md:w-[620px]  w-[260px] md:text-2xl text-base font-semibold  bg-slate-200 rounded-r-[30px] md:px-5 px-2' onChange={(e) => { setcategory(e.target.value) }} /></div>
         </div>
 
         <h1 className='text-center poppins-font font-semibold lg:text-[40px] text-indigo-600 text-[23px] md:text-[30px] py-4 mx-[15px]'>Top Internships Available Now</h1>

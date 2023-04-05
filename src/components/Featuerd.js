@@ -9,7 +9,7 @@ const Featuerd = ({catogery,internship, loading}) => {
     {!loading && (
       <>
     <div className='flex flex-row pt-[50px] justify-between'>
-    <h1 className='poppins-font font-[500px] lg:text-[32px] md:text-2xl text-lg  inline-block'>{catogery} Internships</h1>
+    <h1 className='poppins-font font-[500px] lg:text-[32px] md:text-2xl text-lg md:font-semibold text-[#110A60] inline-block'>{catogery} Internships</h1>
     {(catogery!=='Top Results')?
    <NavLink to={`${catogery}/all_intern`}> <p className='text-xl text-blue-500 cursor-pointer capitalize hover:text-blue-800 '>see  all</p></NavLink>:''}
     </div>

@@ -19,7 +19,6 @@ const [live, setlive]=useState(data.live)
 const [exclusive, setexclusive]=useState(data.exclusive)
 const [file, setfile]=useState()
 
-
 const [popup,setpopup]=useState('')
 
 
@@ -27,19 +26,35 @@ const [popup,setpopup]=useState('')
     try{
         e.preventDefault()
 
-        let form=new FormData(document.getElementById('form3'))
+        let form=new FormData(document.getElementById('form3'));
         form.set('live',live);
         form.set('exclusive',exclusive);
-        form.set('requirements',(typeof(requirements)==='string')?requirements.split('\n'):requirements)
+        form.set('requirements',(typeof(requirements)==='string')?requirements.split('\n'):requirements);
+        let params = new URLSearchParams(form).toString();
         console.log(form.get('live'),live)
         
           console.log(form)
-        const options={
+        console.log(document.getElementById('file').files.length,"file")
+        let options;
+        if (document.getElementById('file').files.length !==0){
+         options={
             method: 'PUT',
             headers: {
                       'Authorization':`Bearer ${token}`
           },
             body: form,}
+        }
+        else{
+           options = 
+            {
+              method: 'PUT',
+              headers: {
+                'Content-Type':'application/x-www-form-urlencoded',
+                        'Authorization':`Bearer ${token}`
+            },
+              body: params,}
+          
+        }
 
   const response=await fetch('https://opportunity.run-ap-south1.goorm.site/jobs/'+id, options)
    const data= await response.json()
@@ -86,14 +101,14 @@ const [popup,setpopup]=useState('')
                 <label  htmlFor="url" className='text-lg'>URL</label>
                 <input className="inp" type="url" placeholder="Enter URL" id="url" name="url" value={url} onChange={(e)=>{seturl(e.target.value)}}/>
                 <div className='flex justify-start'>
-                <input className="w-5 mx-1" type="checkbox" id="live" name="live" value={live} onChange={(e)=>{setlive(e.target.checked)}}/>
+                <input className="w-5 mx-1" type="checkbox" id="live" name="live" checked={live} onChange={(e)=>{setlive(e.target.checked)}}/>
                 <label  htmlFor="live" className='text-lg pr-10'>Live</label>
-                <input className="w-5 mx-1" type="checkbox" id="exclusive"   name="exclusive"  value={exclusive} onChange={(e)=>{setexclusive(e.target.checked)}}/>
+                <input className="w-5 mx-1" type="checkbox" id="exclusive"   name="exclusive"  checked={exclusive} onChange={(e)=>{setexclusive(e.target.checked)}}/>
                 <label  htmlFor="exclusive" className='text-lg'>Exclusive</label>
                 </div>
                 
                 <label  htmlFor="file" className='text-lg'>Image Upload</label>
-                <input className="text-black" type="file" id="file" name="file" value={file} onChange={(e)=>{setfile(e.target.files[0])}}/>
+                <input className="text-black" type="file" id="file" name="file"/>
                 <button className="bg-[#2FCDFF] border-[#0f94bdc7] hover:text-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={updated} >Post</button>
             </form>
     </div>

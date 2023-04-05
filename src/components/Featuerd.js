@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import dummy_data from "../Dummydata"
 
 const Featuerd = ({catogery,internship, loading}) => {
-  console.log(internship)
+  
   return (
     <>
     {!loading && (

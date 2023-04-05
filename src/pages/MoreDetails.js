@@ -4,14 +4,25 @@ import { BsCalendarEvent } from 'react-icons/bs';
 import { FaMoneyBill } from 'react-icons/fa';
 import {useParams } from 'react-router-dom';
 import {useEffect} from 'react'
+import Deleate from '../components/Deleate';
+import Update from '../components/Update';
 const MoreDetails = () => {
   const style = { color: "white" }
   const {id}=useParams()
  
+  const token=localStorage.getItem('token')
+   const [data,setdata]=useState({})
+  const [loading,setloading]=useState(true)
+  const [update,setupdate]=useState(false)
+  const [popup,setpopup]=useState('')
 
-  const [data,setdata]=useState({})
+  function setpop(str){
+    setpopup(str)
+}
 
-    const [loading,setloading]=useState(true)
+     function uptodate(){
+      setupdate(!update)
+     }
 
     useEffect(()=>{
       const get=async()=>{
@@ -28,7 +39,7 @@ const MoreDetails = () => {
       }
       
       get()
-console.log(data)
+   console.log(data)
     },[id])
    
     
@@ -39,6 +50,7 @@ console.log(data)
 
   return (
     <div className='lg:mx-32 bg-gray-50 mt-[1px]'>
+   
      <div className='bg-[#110A60] lg:rounded-[35px] rounded-3xl'>
       <div className=' sm:pb-4 pb-2  flex items-center lg:flex-row flex-col'>
         <div className=' flex items-center w-[100%] space-x-4 sm:space-x-6 lg:space-x-12 lg:px-5 sm:px-3 px-2 '>
@@ -97,6 +109,13 @@ console.log(data)
         })}
        
       </div>
+     {token && <div className='p-3'>
+     <Deleate token={token} id={data._id}/> 
+     <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-14 hover:text-black my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
+     {update&& <Update data={data} token={token} uptodate={uptodate} id={id} setpop={setpop}/>}
+     </div>}
+
+     {popup!==''&&<h1 className=' text-center text-xl  text-indigo-600 p-2'>{popup}</h1>}
     </div>
   )
 }

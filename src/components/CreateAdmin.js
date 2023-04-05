@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CreateAdmin = ({show,onClose}) => {
-
+ const [created,setCreated]=useState(false)
     const token=localStorage.getItem('token')
   async function create(e){
         e.preventDefault();
@@ -25,6 +25,11 @@ const CreateAdmin = ({show,onClose}) => {
           const response=await fetch('https://opportunity.run-ap-south1.goorm.site/admin/newadmin', options)
           const data=await response.json();
           console.log(data)
+          setCreated(true)
+          setTimeout(() => {
+            onClose()
+            setCreated(false)
+          }, 2000);
           // onClose()
           }catch(err){
             console.log(err.message)
@@ -37,6 +42,7 @@ const CreateAdmin = ({show,onClose}) => {
   return (
     <div className='fixed left-0 top-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-10'>
     <div className='bg-white px-3 lg:w-[500px] py-6'>
+      {(created)?<h2 className='bg-green-300 px-7 py-2 my-2 font-mono capitalize flex justify-center text-black'>✅ Created New Admin</h2>:""}
         <div className=' flex justify-between items-center'>
             <h4 className='m-0 text-2xl font-semibold font-Poppins'>Create New Admin</h4>
             <button className='bg-red-100 p-2 text-sm' onClick={onClose}>❌</button>

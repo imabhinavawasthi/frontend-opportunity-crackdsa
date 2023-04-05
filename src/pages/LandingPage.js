@@ -21,13 +21,13 @@ const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) =
       </div>
 
       <div className='lg:mx-[45px] mx-[22px] mt-4'>
-        <Featuerd catogery='Full-stack Developer' internship={full_stack.filter((intern) => {
+        <Featuerd catogery='Full-stack' internship={full_stack.filter((intern) => {
           return intern.exclusive
         })} loading={loading} />
-        <Featuerd catogery='Frontend Developer' internship={frontend_intern.filter((intern) => {
+        <Featuerd catogery='Frontend' internship={frontend_intern.filter((intern) => {
           return intern.exclusive
         })} loading={loading} />
-        <Featuerd catogery='Backend Developer' internship={backend_intern.filter((intern) => {
+        <Featuerd catogery='Backend' internship={backend_intern.filter((intern) => {
           return intern.exclusive
         })} loading={loading} />
 

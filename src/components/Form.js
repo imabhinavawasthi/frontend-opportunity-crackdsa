@@ -107,11 +107,11 @@ form.set('requirements',data.requirements.split('\n'))
                 <label  htmlFor="url" className='text-lg'>URL</label>
                 <input className="inp" type="url" placeholder="Enter URL" id="url" name="url" value={data.url} onChange={handlechange}/>
                 <div className='flex justify-start'>
-                <input className="w-5 mx-1" type="checkbox" id="live" name="live"  onChange={(e)=>{
+                <input className="w-5 mx-1" type="checkbox" id="live" name="live" checked={live} onChange={(e)=>{
                   setlive(e.target.checked)
                 }}/>
                 <label  htmlFor="live" className='text-lg pr-10'>Live</label>
-                <input className="w-5 mx-1" type="checkbox" id="exclusive"   name="exclusive" onChange={(e)=>{
+                <input className="w-5 mx-1" type="checkbox" id="exclusive" checked={exclusive}  name="exclusive" onChange={(e)=>{
                   setexclusive(e.target.checked)
                 }}/>
                 <label  htmlFor="exclusive" className='text-lg'>Exclusive</label>

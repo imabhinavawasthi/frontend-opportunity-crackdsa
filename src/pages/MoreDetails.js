@@ -82,7 +82,7 @@ const MoreDetails = () => {
           <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105'>
           Apply Now
           </button>
-          <p className='text-white font-Poppins font-medium my-2'>Last date to apply: {data.lastdate}</p>
+          <p className='text-white font-Poppins font-medium my-2'>Last date to apply: {data.lastdate.slice(0,10)}</p>
         </div>
        </div>
       <div className='p-8'>
@@ -111,7 +111,7 @@ const MoreDetails = () => {
       </div>
      {token && <div className='p-3'>
      <Deleate token={token} id={data._id}/> 
-     <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-14 hover:text-black my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
+     <button className='bg-[#2FCDFF] border-[#0f94bdc7] border border-solid rounded-xl px-14 hover:text-black my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
      {update&& <Update data={data} token={token} uptodate={uptodate} id={id} setpop={setpop}/>}
      </div>}
 

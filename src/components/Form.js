@@ -22,6 +22,7 @@ const Form = () => {
   const [file, setfile]=useState()
   const [show,setShow]=useState(false)
   const [posted,setPosted]=useState(false)
+  const [posting,setposting]=useState(false)
   function handlechange(e){
     const {name, value}=e.target;
     setData((prev)=>({
@@ -32,13 +33,12 @@ const Form = () => {
 
 async function post (e){
   e.preventDefault()
-
+setposting(true)
 let form=new FormData(document.getElementById('form'))
 form.set('live',live);
 form.set('exclusive',exclusive);
 form.set('requirements',data.requirements.split('\n'))
-    // console.log(form.get('live'),live)
-    // console.log(token)
+  
   try{
     const options={
       method: 'POST',
@@ -52,6 +52,7 @@ form.set('requirements',data.requirements.split('\n'))
   const data=await response.json();
   console.log(data)
   setPosted(true)
+  setposting(false)
   setTimeout(() => {
     setData({ title:"",
     company:"",
@@ -71,6 +72,7 @@ form.set('requirements',data.requirements.split('\n'))
   }, 2000);
   }catch(err){
     console.log(err.message)
+    setposting(false)
   }
 }
 
@@ -80,7 +82,7 @@ form.set('requirements',data.requirements.split('\n'))
     {(posted)?<h2 className='bg-green-300 px-7 py-2 my-2 font-mono capitalize flex justify-center text-black'>✅ Post Added Successfully</h2>:""}
     <div className='bg-slate-100 text-black min-h-screen p-5 flex flex-col items-center min-w-full'>
             <div className='flex flex-col lg:flex-row'><h2 className="text-3xl  font-semibold font-Poppins my-2">Post New Opportunity</h2>
-            <button className='bg-green-500 lg:absolute right-0 mr-4' onClick={()=>{setShow(true)}}>Create New Admin</button></div>
+            <button className='bg-green-500 lg:absolute right-0 mr-4 active:scale-105' onClick={()=>{setShow(true)}}>Create New Admin</button></div>
             <form  id='form' method='POST' encType="multipart/form-data"  className="flex flex-col w-[90%] px-12">
                 <label htmlFor="title" className='text-lg'>Internship Title</label>
                 <input className="inp"  type="text" placeholder="Internship Title" id="title" name="title" value={data.title} onChange={handlechange}/>
@@ -121,7 +123,7 @@ form.set('requirements',data.requirements.split('\n'))
                 <input className="text-black" type="file" id="file" name="file"onChange={(e)=>{
                   setfile(e.target.files[0])
                 }}/>
-                <button className="bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={post} >Post</button>
+                <button className="bg-[#2FCDFF] disabled:opacity-60 disabled:cursor-not-allowed hover:bg-[#107999] disabled:hover:bg-[#2FCDFF] border-[#107999] border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={post} disabled={posting} >Post</button>
             </form>
             
     </div>

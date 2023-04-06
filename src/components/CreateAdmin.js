@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 const CreateAdmin = ({show,onClose}) => {
  const [created,setCreated]=useState(false)
     const token=localStorage.getItem('token')
-  async function create(e){
-        e.preventDefault();
+    const [creating,setcreating]=useState(false)
+  async function create(e){   
+       setcreating(true)
+ e.preventDefault();
         console.log(document.getElementById('newAdminform'))
         let form=new FormData(document.getElementById('newAdminform'))
         let params = new URLSearchParams(form).toString();
@@ -26,6 +28,7 @@ const CreateAdmin = ({show,onClose}) => {
           const data=await response.json();
           console.log(data)
           setCreated(true)
+          setcreating(false)
           setTimeout(() => {
             onClose()
             setCreated(false)
@@ -33,6 +36,7 @@ const CreateAdmin = ({show,onClose}) => {
           // onClose()
           }catch(err){
             console.log(err.message)
+            setcreating(false)
           }
     }
 
@@ -55,7 +59,7 @@ const CreateAdmin = ({show,onClose}) => {
                 <input type="email" name='email' id='admiNEmail' className='border-[2px] border-black border-solid p-2' placeholder='yourexample@gmail.com'/>
                 <label htmlFor="password" className='text-lg'>Password</label>
                 <input type="password" name='password' id='adminPassword' className='border-[2px] border-black border-solid p-2 mb-4' placeholder='******'/>
-                <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-2 py-1 font-Poppins hover:bg-blue-400' onClick={create}>Create Admin</button>
+                <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-2 py-1 font-Poppins hover:bg-blue-400 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#2FCDFF] active:scale-105' onClick={create} disabled={creating}>Create Admin</button>
             </form>
         </div>
     </div>

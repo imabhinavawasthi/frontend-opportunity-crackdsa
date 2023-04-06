@@ -17,7 +17,7 @@ const [location,setlocation]=useState(data.location)
 const [url,seturl]=useState(data.url)
 const [live, setlive]=useState(data.live)
 const [exclusive, setexclusive]=useState(data.exclusive)
-const [file, setfile]=useState()
+ const [posting ,setposting]=useState(false)
 
 const [popup,setpopup]=useState('')
 
@@ -25,7 +25,7 @@ const [popup,setpopup]=useState('')
   async function updated(e){
     try{
         e.preventDefault()
-
+       setposting(true)
         let form=new FormData(document.getElementById('form3'));
         form.set('live',live);
         form.set('exclusive',exclusive);
@@ -63,9 +63,10 @@ const [popup,setpopup]=useState('')
     setpop('')
   },3000);
    uptodate()
-  
+    setposting(false)
     }catch(err){
         setpopup(err.message)
+        setposting(false)
 
     }
   }
@@ -109,7 +110,7 @@ const [popup,setpopup]=useState('')
                 
                 <label  htmlFor="file" className='text-lg'>Image Upload</label>
                 <input className="text-black" type="file" id="file" name="file"/>
-                <button className="bg-[#2FCDFF] border-[#0f94bdc7] hover:text-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  active:scale-105" onClick={updated} >Post</button>
+                <button className="bg-[#2FCDFF] hover:bg-[#0f94bdc7] border-[#0f94bdc7] hover:text-black border border-solid rounded-xl px-4 py-1 font-Poppins mx-[30%]  disabled:opacity-60 disabled:hover:bg-[#2FCDFF] disabled:cursor-not-allowed  active:scale-105" onClick={updated} disabled={posting} >Post</button>
             </form>
     </div>
   )

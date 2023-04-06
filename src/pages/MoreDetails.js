@@ -4,6 +4,8 @@ import { BsCalendarEvent } from 'react-icons/bs';
 import { FaMoneyBill } from 'react-icons/fa';
 import {useParams } from 'react-router-dom';
 import {useEffect} from 'react'
+
+import loder from '../images/Fading line.gif'
 import Deleate from '../components/Deleate';
 import Update from '../components/Update';
 const MoreDetails = () => {
@@ -15,6 +17,7 @@ const MoreDetails = () => {
   const [loading,setloading]=useState(true)
   const [update,setupdate]=useState(false)
   const [popup,setpopup]=useState('')
+  const [error ,seterror]=useState('')
 
   function setpop(str){
     setpopup(str)
@@ -34,18 +37,23 @@ const MoreDetails = () => {
           setdata(item)
           setloading(false)
          }catch(err){
-          console.log(err.message)
+          seterror(err.message)
+          setloading(false)
          }
       }
       
       get()
-   console.log(data)
+ 
     },[id])
    
-    
-    if(loading===true){
+if(error!==''){
+      return <h1 className='md:text-4xl text-xl text-indigo-600 font-mono text-center py-10'>{error}</h1>
+    }
 
-      return(<div className='py-7 sm:py-10 px-10 sm:px-16 text-xl sm:text-2xl font-semibold font-mono text-[#110a60]'>loading...</div>)
+    if(loading){
+      return  (<div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
+      <img src={loder} className='h-[110px] w-[110px] '  alt='spinner' />
+     </div>)
     }
 
   return (
@@ -79,8 +87,8 @@ const MoreDetails = () => {
       
       </div>
       <div className=' mx-10 flex flex-col items-center my-2 lg:justify-end px-21  lg:items-end'>
-          <button className='bg-[#2FCDFF] border-black border border-solid rounded-xl px-4 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105'>
-          Apply Now
+          <button className='bg-[#2FCDFF] border-[#1583a5] hover:bg-[#1583a5]  border border-solid rounded-xl px-4 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105'>
+        <a href={data.url} target='_blank' rel="noreferrer">  Apply Now</a>
           </button>
           <p className='text-white font-Poppins font-medium my-2'>Last date to apply: {data.lastdate.slice(0,10)}</p>
         </div>
@@ -111,7 +119,7 @@ const MoreDetails = () => {
       </div>
      {token && <div className='p-3'>
      <Deleate token={token} id={data._id}/> 
-     <button className='bg-[#2FCDFF] border-[#0f94bdc7] border border-solid rounded-xl px-14 hover:text-black my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
+     <button className='bg-[#2FCDFF] border-[#0f94bdc7] border border-solid rounded-xl px-14 hover:bg-[#1583a5] my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
      {update&& <Update data={data} token={token} uptodate={uptodate} id={id} setpop={setpop}/>}
      </div>}
 

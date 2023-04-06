@@ -97,24 +97,25 @@ if(error!==''){
         <h1 className='font-Poppins font-bold md:text-2xl text-xl mb-2'>
           Skills
         </h1>
-        <h5 className='font-Poppins font-semibold px-3 text-lg'>Key Skills</h5>
         <div className='flex flex-wrap py-2'>
         {data.skills.map((detail)=>{
           return  <p className='bg-[#D9D9D9] capitalize border-black border border-solid rounded-xl px-4 py-[2px] font-Poppins font-semibold  text-center lg:mx-5 mx-2 mb-2'>{detail}</p>
         })}
         </div>
-        <h5 className='font-Poppins font-semibold px-3 text-lg'>Other Skills</h5>
+        <h5 className='font-Poppins font-bold md:text-2xl text-xl mb-2'>Requirements</h5>
         <div className='flex flex-wrap py-2'>
-        <p className='bg-[#D9D9D9] border-black border border-solid rounded-xl px-4 py-[2px] font-Poppins font-semibold  text-center lg:mx-5 mx-2 mb-2'>React JS</p>
-          <p className='bg-[#D9D9D9] border-black border border-solid rounded-xl px-4 py-[2px] font-Poppins font-semibold  text-center lg:mx-5 mx-2 mb-2'>Communication</p>
-          <p className='bg-[#D9D9D9] border-black border border-solid rounded-xl px-4 py-[2px] font-Poppins font-semibold  text-center lg:mx-5 mx-2 mb-2'>React JS</p>
+        {data.requirements.map((detail)=>{
+          return <p className='bg-[#D9D9D9] border-black border border-solid rounded-xl px-4 py-[2px] font-Poppins font-semibold  text-center lg:mx-5 mx-2 mb-2'>{detail}</p>
+        
+        })}
+          
         </div>
         <h1 className='font-Poppins font-bold text-xl md:text-2xl '>
           Details
         </h1>
-        {data.requirements.map((detail)=>{
-          return <p className='font-Poppins font-medium p-3 capitalize'>{detail}</p>
-        })}
+       
+           <p className='font-Poppins font-medium p-3 capitalize'>{data.desc}</p>
+      
        
       </div>
      {token && <div className='p-3'>

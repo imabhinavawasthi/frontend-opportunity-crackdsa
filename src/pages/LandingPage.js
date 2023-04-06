@@ -3,7 +3,7 @@ import { BiSearch } from 'react-icons/bi';
 import { Typewriter, cursor } from 'react-simple-typewriter'
 
 import Featuerd from '../components/Featuerd';
-const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) => {
+const LandingPage = ({ intern_data, loading, categories }) => {
   const [category, setcategory] = useState('')
   const [search,setSearch]=useState('By Skills')
   const [searching,setSearching]=useState(false)
@@ -64,7 +64,13 @@ const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) =
 {(searching)?<div className='lg:mx-[45px] mx-[22px] mt-4'>
   <Featuerd catogery='Top Results' internship={data}/>
 </div>:<div className='lg:mx-[45px] mx-[22px] mt-4'>
-        <Featuerd catogery='Full-stack' internship={full_stack.filter((intern) => {
+{!loading && categories.map((cat)=>{
+  return(
+<Featuerd catogery={cat} internship={intern_data[cat]!=='No items present'?intern_data[cat].filter((intern) => {
+          return intern.exclusive
+        }):''} loading={loading}/>
+)})}
+        {/*<Featuerd catogery='Full-stack' internship={full_stack.filter((intern) => {
           return intern.exclusive
         })} loading={loading} />
         <Featuerd catogery='Frontend' internship={frontend_intern.filter((intern) => {
@@ -72,7 +78,7 @@ const LandingPage = ({ frontend_intern, backend_intern, full_stack, loading }) =
         })} loading={loading} />
         <Featuerd catogery='Backend' internship={backend_intern.filter((intern) => {
           return intern.exclusive
-        })} loading={loading} />
+        })} loading={loading} />*/}
 
       </div>}
       

@@ -27,7 +27,7 @@ const Deleate = ({token,id}) => {
     }
   return (
     <div className=''>
-   <button onClick={()=>{Del()}} className='bg-[#2FCDFF] hover:text-black border-[#0f94bdc7] border border-solid rounded-xl px-4 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105'>
+   <button onClick={()=>{Del()}} className='bg-[#2FCDFF] hover:bg-[#116f8b]  border-[#0f94bdc7] border border-solid rounded-xl px-4 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105'>
           Delete Internship
           </button>
     </div>

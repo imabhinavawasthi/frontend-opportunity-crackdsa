@@ -13,7 +13,7 @@ const Card = ({data}) => {
     <p className='font-Poppins p-2'> Duration: {data.duration}</p>
     <p className='font-Poppins p-2 capitalize'>Location: {data.location}</p>
     <p className='font-Poppins p-2'>Last date to apply: {data.lastdate.slice(0,10)}</p>
-   <NavLink to={`/${data._id}`} ><p className='content-center  underline text-[#306AFF] hover:text-blue-800 flex justify-center pb-2'>View More</p></NavLink> 
+   <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`} ><p className='content-center  underline text-[#306AFF] hover:text-blue-800 flex justify-center pb-2'>View More</p></NavLink> 
     </div>
 </div>
   )

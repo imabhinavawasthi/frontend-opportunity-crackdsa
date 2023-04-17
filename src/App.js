@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Rootlayout />} >
           <Route exact path='/' element={<LandingPage intern_data={intern_data} categories={category} loading={loading} error={error} />} />
-          <Route exact path=':id' element={<MoreDetails />} />
+          <Route exact path=':id/:title' element={<MoreDetails />} />
           <Route exact path=':category/all_intern' element={<All_intern />} />
           <Route exact path='/admin' element={<Admin/>}/>
           <Route exact path='/newpost' element={<Form/>}/>

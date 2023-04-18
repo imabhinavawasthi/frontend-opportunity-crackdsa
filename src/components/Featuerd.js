@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom" 
  import Card from "./Card"
+ import Card2 from "./Card2"
 
 
 const Featuerd = ({catogery,internship}) => {
@@ -15,7 +16,7 @@ const Featuerd = ({catogery,internship}) => {
     </div>
     <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-7 sm:px-5 '>
         {(typeof(internship)==='string') ?<h2 className="text-xl md:text-4xl font-semibold text-indigo-600 font-mono py-8">No results</h2>:internship.map((data,index)=>{
-          return <Card data={data} key={index}/>
+          return <Card2 data={data} key={index}/>
         })}
     </div>
     </>

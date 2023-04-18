@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
  //import card
  import Card from "../components/Card"
+ import Card2 from "../components/Card2"
 
  import loder from '../images/Fading line.gif'
 
@@ -49,7 +50,7 @@ const All_intern = ({frontend_intern, full_stack, backend_intern}) => {
 
     <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-5 sm:px-5'>
         {internships.map((data,index)=>{
-          return <Card data={data} key={index}/>
+          return <Card2 data={data} key={index}/>
         })}
     </div>
          </div> 

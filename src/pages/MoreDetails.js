@@ -5,7 +5,7 @@ import { FaMoneyBill } from 'react-icons/fa';
 import {useParams } from 'react-router-dom';
 import {useEffect} from 'react'
 
-import loder from '../images/Fading line.gif'
+import loder from '../images/loading.gif'
 import Deleate from '../components/Deleate';
 import Update from '../components/Update';
 const MoreDetails = () => {
@@ -52,7 +52,7 @@ if(error!==''){
 
     if(loading){
       return  (<div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
-      <img src={loder} className='h-[110px] w-[110px] '  alt='spinner' />
+      <img src={loder} className='h-[250px] w-[250px] '  alt='spinner' />
      </div>)
     }
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //imprt pages
 import LandingPage from './pages/LandingPage';
 import All_intern from './pages/All_intern';
-import MoreDetails from './pages/MoreDetails';
+import MoreDetails2 from './pages/MoreDetails2';
 import Admin from './pages/Admin';
 
 //import custom hook
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Rootlayout />} >
           <Route exact path='/' element={<LandingPage intern_data={intern_data} categories={category} loading={loading} error={error} />} />
-          <Route exact path=':id/:title' element={<MoreDetails />} />
+          <Route exact path=':id/:title' element={<MoreDetails2 />} />
           <Route exact path=':category/all_intern' element={<All_intern />} />
           <Route exact path='/admin' element={<Admin/>}/>
           <Route exact path='/newpost' element={<Form/>}/>

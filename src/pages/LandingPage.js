@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { Typewriter } from "react-simple-typewriter";
-import loder from "../images/Fading line.gif";
+import loder from "../images/loading.gif";
 import Featuerd from "../components/Featuerd";
 
 const LandingPage = ({ intern_data, loading, categories, error }) => {
@@ -61,7 +61,7 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
   if (loading) {
     return (
       <div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
-        <img src={loder} className="h-[110px] w-[110px] " alt="spinner" />
+        <img src={loder} className="h-[250px] w-[250px] " alt="spinner" />
       </div>
     );
   }

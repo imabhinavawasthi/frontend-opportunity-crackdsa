@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
  import Card from "../components/Card"
  import Card2 from "../components/Card2"
 
- import loder from '../images/Fading line.gif'
+ import loder from '../images/loading.gif'
 
 
 
@@ -39,7 +39,7 @@ const All_intern = ({frontend_intern, full_stack, backend_intern}) => {
     }
     if(loading){
         return  (<div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
-        <img src={loder} className='h-[110px] w-[110px] '  alt='spinner' />
+        <img src={loder} className='h-[250px] w-[250px] '  alt='spinner' />
        </div>)
       }
 

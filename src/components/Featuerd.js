@@ -14,7 +14,7 @@ const Featuerd = ({catogery,internship}) => {
     {(catogery!=='Top Results')?
    <NavLink to={`${catogery}/all_intern`}> <p className='sm:text-xl text-lg text-blue-500 cursor-pointer capitalize hover:text-blue-800 '>see  all</p></NavLink>:''}
     </div>
-    <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-7 sm:px-5 '>
+    <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 gap-10 px-3 sm:pt-7 sm:px-5 '>
         {(typeof(internship)==='string') ?<h2 className="text-xl md:text-4xl font-semibold text-indigo-600 font-mono py-8">No results</h2>:internship.map((data,index)=>{
           return <Card2 data={data} key={index}/>
         })}

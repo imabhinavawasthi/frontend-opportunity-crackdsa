@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 
 const Card2 = ({ data }) => {
   return (
+    
     <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
       <img
         src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
         alt=""
-        className="h-56 w-full rounded-md object-cover"
+        className="h-56 w-full rounded-md object-contain"
       />
 
       <div className="mt-2">

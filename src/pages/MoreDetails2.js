@@ -3,65 +3,65 @@ import { useState } from 'react'
 import { HiLocationMarker } from 'react-icons/hi';
 import { BsCalendarEvent } from 'react-icons/bs';
 import { FaMoneyBill } from 'react-icons/fa';
-import {useParams } from 'react-router-dom';
-import {useEffect} from 'react'
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react'
 
 import loder from '../images/loading.gif'
 import Deleate from '../components/Deleate';
 import Update from '../components/Update';
 
 const MoreDetails2 = () => {
-    const {id}=useParams()
- 
-  const token=localStorage.getItem('token')
-   const [data,setdata]=useState({})
-  const [loading,setloading]=useState(true)
-  const [update,setupdate]=useState(false)
-  const [popup,setpopup]=useState('')
-  const [error ,seterror]=useState('')
+    const { id } = useParams()
 
-  function setpop(str){
-    setpopup(str)
-}
+    const token = localStorage.getItem('token')
+    const [data, setdata] = useState({})
+    const [loading, setloading] = useState(true)
+    const [update, setupdate] = useState(false)
+    const [popup, setpopup] = useState('')
+    const [error, seterror] = useState('')
 
-     function uptodate(){
-      setupdate(!update)
-     }
-
-    useEffect(()=>{
-      const get=async()=>{
-        setloading(true)
-         try{
-          const res=await fetch('https://opportunity.run-ap-south1.goorm.site/jobs/'+id)
-          const item= await res.json()
-          console.log(item)
-          setdata(item)
-          setloading(false)
-         }catch(err){
-          seterror(err.message)
-          setloading(false)
-         }
-      }
-      
-      get()
- 
-    },[id])
-   
-if(error!==''){
-      return <h1 className='md:text-4xl text-xl text-indigo-600 font-mono text-center py-10'>{error}</h1>
+    function setpop(str) {
+        setpopup(str)
     }
 
-    if(loading){
-      return  (<div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
-      <img src={loder} className='h-[250px] w-[250px] '  alt='spinner' />
-     </div>)
+    function uptodate() {
+        setupdate(!update)
+    }
+
+    useEffect(() => {
+        const get = async () => {
+            setloading(true)
+            try {
+                const res = await fetch('https://opportunity.run-ap-south1.goorm.site/jobs/' + id)
+                const item = await res.json()
+                console.log(item)
+                setdata(item)
+                setloading(false)
+            } catch (err) {
+                seterror(err.message)
+                setloading(false)
+            }
+        }
+
+        get()
+
+    }, [id])
+
+    if (error !== '') {
+        return <h1 className='md:text-4xl text-xl text-indigo-600 font-mono text-center py-10'>{error}</h1>
+    }
+
+    if (loading) {
+        return (<div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
+            <img src={loder} className='h-[250px] w-[250px] ' alt='spinner' />
+        </div>)
     }
     return (
         <div>
             {/* <header className="text-gray-700 body-font border-b border-gray-200">
                 <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="https://tailblocks.cc" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                         </svg>
                         <span class="ml-3 text-xl">TAILBLOCKS</span>
@@ -73,7 +73,7 @@ if(error!==''){
                         <a class="mr-5 hover:text-gray-900">Fourth Link</a>
                     </nav>
                     <button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Button
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                     </button>
@@ -83,7 +83,7 @@ if(error!==''){
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                     <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-                            <br className="hidden lg:inline-block"/>readymade gluten
+                            <br className="hidden lg:inline-block" />readymade gluten
                         </h1>
                         <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
                         <div className="flex justify-center">
@@ -92,7 +92,7 @@ if(error!==''){
                         </div>
                     </div>
                     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600/edf2f7/a5afbd"/>
+                        <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600/edf2f7/a5afbd" />
                     </div>
                 </div>
             </section>
@@ -107,7 +107,7 @@ if(error!==''){
                             <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                         </svg>
                                     </div>
@@ -116,7 +116,7 @@ if(error!==''){
                                 <div className="flex-grow">
                                     <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                     <a className="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
@@ -127,7 +127,7 @@ if(error!==''){
                             <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                                             <circle cx="12" cy="7" r="4"></circle>
                                         </svg>
@@ -137,7 +137,7 @@ if(error!==''){
                                 <div className="flex-grow">
                                     <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                     <a className="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
@@ -148,7 +148,7 @@ if(error!==''){
                             <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                             <circle cx="6" cy="6" r="3"></circle>
                                             <circle cx="6" cy="18" r="3"></circle>
                                             <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
@@ -159,7 +159,7 @@ if(error!==''){
                                 <div className="flex-grow">
                                     <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                     <a className="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
@@ -172,12 +172,12 @@ if(error!==''){
             <section className="text-gray-700 body-font border-t border-gray-200">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap">
                     <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                        <img alt="feature" className="object-cover object-center h-full w-full" src="https://dummyimage.com/600x600/edf2f7/a5afbd"/>
+                        <img alt="feature" className="object-cover object-center h-full w-full" src="https://dummyimage.com/600x600/edf2f7/a5afbd" />
                     </div>
                     <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                         <div className="flex flex-col mb-10 lg:items-start items-center">
                             <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                 </svg>
                             </div>
@@ -185,7 +185,7 @@ if(error!==''){
                                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Shooting Stars</h2>
                                 <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                 <a classNameName="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
@@ -193,7 +193,7 @@ if(error!==''){
                         </div>
                         <div className="flex flex-col mb-10 lg:items-start items-center">
                             <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                     <circle cx="6" cy="6" r="3"></circle>
                                     <circle cx="6" cy="18" r="3"></circle>
                                     <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
@@ -203,7 +203,7 @@ if(error!==''){
                                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">The Catalyzer</h2>
                                 <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                 <a className="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
@@ -211,7 +211,7 @@ if(error!==''){
                         </div>
                         <div className="flex flex-col mb-10 lg:items-start items-center">
                             <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                     <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
@@ -220,7 +220,7 @@ if(error!==''){
                                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Neptune</h2>
                                 <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                 <a className="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
@@ -239,7 +239,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                     </svg>
                                 </div>
@@ -250,7 +250,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <circle cx="6" cy="6" r="3"></circle>
                                         <circle cx="6" cy="18" r="3"></circle>
                                         <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
@@ -263,7 +263,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </svg>
@@ -275,7 +275,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
                                     </svg>
                                 </div>
@@ -286,7 +286,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
                                     </svg>
                                 </div>
@@ -297,7 +297,7 @@ if(error!==''){
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-300 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                     </svg>
                                 </div>
@@ -318,83 +318,83 @@ if(error!==''){
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Holden Caulfield</h2>
-                                        <p className="text-gray-500">UI Designer</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Holden Caulfield</h2>
+                                    <p className="text-gray-500">UI Designer</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/84x84/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Henry Letham</h2>
-                                        <p className="text-gray-500">CTO</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/84x84/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Henry Letham</h2>
+                                    <p className="text-gray-500">CTO</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/88x88/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Oskar Blinde</h2>
-                                        <p className="text-gray-500">Founder</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/88x88/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Oskar Blinde</h2>
+                                    <p className="text-gray-500">Founder</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/90x90/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">John Doe</h2>
-                                        <p className="text-gray-500">DevOps</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/90x90/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">John Doe</h2>
+                                    <p className="text-gray-500">DevOps</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/94x94/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Martin Eden</h2>
-                                        <p className="text-gray-500">Software Engineer</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/94x94/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Martin Eden</h2>
+                                    <p className="text-gray-500">Software Engineer</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/98x98/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Boris Kitua</h2>
-                                        <p className="text-gray-500">UX Researcher</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/98x98/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Boris Kitua</h2>
+                                    <p className="text-gray-500">UX Researcher</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/100x90/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Atticus Finch</h2>
-                                        <p className="text-gray-500">QA Engineer</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/100x90/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Atticus Finch</h2>
+                                    <p className="text-gray-500">QA Engineer</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/104x94/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Alper Kamu</h2>
-                                        <p className="text-gray-500">System</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/104x94/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Alper Kamu</h2>
+                                    <p className="text-gray-500">System</p>
+                                </div>
                             </div>
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/108x98/edf2f7/a5afbd"/>
-                                    <div className="flex-grow">
-                                        <h2 className="text-gray-900 title-font font-medium">Rodrigo Monchi</h2>
-                                        <p className="text-gray-500">Product Manager</p>
-                                    </div>
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/108x98/edf2f7/a5afbd" />
+                                <div className="flex-grow">
+                                    <h2 className="text-gray-900 title-font font-medium">Rodrigo Monchi</h2>
+                                    <p className="text-gray-500">Product Manager</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -425,14 +425,14 @@ if(error!==''){
                             <p className="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">Schlitz single-origin</p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" class="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" class="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" Name="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" Name="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
@@ -440,34 +440,34 @@ if(error!==''){
                             <p class="h-12 text-gray-600 px-6 text-center leading-relaxed flex items-center justify-center">Feature</p>
                             <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <div className="border-t border-gray-300 p-6 text-center rounded-bl-lg">
                                 <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Button
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </button>
@@ -486,14 +486,14 @@ if(error!==''){
                             <p className="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">Schlitz single-origin</p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
@@ -501,36 +501,36 @@ if(error!==''){
                             <p className="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <div className="p-6 text-center border-t border-gray-300">
                                 <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Button
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </button>
@@ -548,14 +548,14 @@ if(error!==''){
                             <p className="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">Schlitz single-origin</p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span className="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
@@ -563,34 +563,34 @@ if(error!==''){
                             <p className="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
                                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="3" className="w-3 h-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" className="w-3 h-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>
                             </p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <p className="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
                                     <path d="M18 6L6 18M6 6l12 12"></path>
                                 </svg>
                             </p>
                             <div className="p-6 text-center border-t border-gray-300">
                                 <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Button
-                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
                                 </button>
@@ -615,16 +615,16 @@ if(error!==''){
             </section>
             <section className="text-gray-700 body-font relative">
                 <div className="absolute inset-0 bg-gray-300">
-                    <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
+                    <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
                 </div>
                 <div className="container px-5 py-24 mx-auto flex">
                     <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10">
                         <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
                         <p className="leading-relaxed mb-5 text-gray-600">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
-                        <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email"/>
-                            <textarea className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none" placeholder="Message"></textarea>
-                            <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                            <p className="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+                        <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" />
+                        <textarea className="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none" placeholder="Message"></textarea>
+                        <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+                        <p className="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
                     </div>
                 </div>
             </section>
@@ -746,23 +746,23 @@ if(error!==''){
                         </div>
                         <span className="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
                             <a className="text-gray-500">
-                                <svg fill="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                                 </svg>
                             </a>
                             <a className="ml-3 text-gray-500">
-                                <svg fill="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                                 </svg>
                             </a>
                             <a className="ml-3 text-gray-500">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
                                     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                                     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                                 </svg>
                             </a>
                             <a className="ml-3 text-gray-500">
-                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" class="w-5 h-5" viewBox="0 0 24 24">
                                     <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
                                     <circle cx="4" cy="4" r="2" stroke="none"></circle>
                                 </svg>
@@ -779,7 +779,7 @@ if(error!==''){
                     </div>
                 </div>
             </footer> */}
-            {/* <a href="https://github.com/mertJF/tailblocks" class="rounded-full w-12 h-12 bg-gray-100 fixed bottom-0 right-0 flex items-center justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" strokeLinecap="round" stroke-linejoin="round">
+            {/* <a href="https://github.com/mertJF/tailblocks" class="rounded-full w-12 h-12 bg-gray-100 fixed bottom-0 right-0 flex items-center justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg></a>
             {token && <div className='p-3'>

@@ -131,7 +131,7 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
                   intern_data[cat] !== "No items present"
                     ? intern_data[cat].filter((intern) => {
                         return intern.exclusive;
-                      }).slice(0,4)
+                      }).slice(0,3)
                     : ""
                 }
                 loading={loading}

@@ -82,17 +82,19 @@ const MoreDetails2 = () => {
             <section className="text-gray-700 body-font">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                     <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-                            <br className="hidden lg:inline-block" />readymade gluten
+                        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 capitalize">{data.title}
+                           
                         </h1>
-                        <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+                        <p className="mb-8 leading-relaxed">{data.desc}</p>
                         <div className="flex justify-center">
-                            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+                            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                            <a href={data.url} target='_blank' rel="noreferrer">  Apply Now</a>
+                            </button>
                             <button className="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">Button</button>
                         </div>
                     </div>
                     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600/edf2f7/a5afbd" />
+                        <img className="object-cover object-center rounded" alt="hero" src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                     </div>
                 </div>
             </section>
@@ -306,10 +308,12 @@ const MoreDetails2 = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+                    <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    <a href={data.url} target='_blank' rel="noreferrer">  Apply Now</a>
+                    </button>
                 </div>
             </section>
-            <section className="text-gray-700 body-font border-t border-gray-200">
+           {/*  <section className="text-gray-700 body-font border-t border-gray-200">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-20">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
@@ -627,7 +631,7 @@ const MoreDetails2 = () => {
                         <p className="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
                     </div>
                 </div>
-            </section>
+            </section>*/}
             {/* <footer className="text-gray-700 body-font">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
@@ -782,9 +786,9 @@ const MoreDetails2 = () => {
             {/* <a href="https://github.com/mertJF/tailblocks" class="rounded-full w-12 h-12 bg-gray-100 fixed bottom-0 right-0 flex items-center justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg></a>*/}
-            {token && <div className='p-3'>
+            {token && <div className='p-3 flex'>
      <Deleate token={token} id={data._id}/> 
-     <button className='bg-[#2FCDFF] border-[#0f94bdc7] border border-solid rounded-xl px-14 hover:bg-[#1583a5] my-2 py-1 font-Poppins font-semibold max-lg:w-[100%]  active:scale-105' onClick={()=>{uptodate()}}>Update</button>
+     <button className='ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg' onClick={()=>{uptodate()}}>Update</button>
      {update&& <Update data={data} token={token} uptodate={uptodate} id={id} setpop={setpop}/>}
      </div>}
 

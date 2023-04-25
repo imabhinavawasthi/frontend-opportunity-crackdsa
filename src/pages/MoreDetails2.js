@@ -19,6 +19,7 @@ const MoreDetails2 = () => {
     const [update, setupdate] = useState(false)
     const [popup, setpopup] = useState('')
     const [error, seterror] = useState('')
+    const [share,setShare] = useState("Share")
 
     function setpop(str) {
         setpopup(str)
@@ -81,19 +82,19 @@ const MoreDetails2 = () => {
             </header> */}
             <section className="text-gray-700 body-font">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-                    <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                    <div className="mx-10 lg: flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 capitalize">{data.title}
                            
                         </h1>
                         <p className="mb-8 leading-relaxed">{data.desc}</p>
                         <div className="flex justify-center">
                             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                            <a href={data.url} target='_blank' rel="noreferrer">  Apply Now</a>
+                            <a href={data.url} target='_blank' rel="noreferrer">Apply Now</a>
                             </button>
-                            <button className="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">Button</button>
+                            <button className="ml-4 inline-flex items-center text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg" onClick={() => {navigator.clipboard.writeText(window.location.href);setShare("Copied")}}>{share}</button>
                         </div>
                     </div>
-                    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                    <div className="mx-10 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                         <img className="object-cover object-center rounded" alt="hero" src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                     </div>
                 </div>

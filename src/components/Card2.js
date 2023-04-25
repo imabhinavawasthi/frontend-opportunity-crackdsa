@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Card2 = ({ data }) => {
   return (
-    
+    <div className="shadow-sm rounded-md hover:shadow-md hover:-translate-y-1 transform-gpu">
     <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
       <img
         src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
@@ -11,7 +11,7 @@ const Card2 = ({ data }) => {
         className="h-56 w-full rounded-md object-contain"
       />
 
-      <div className="mt-2">
+      <div className="m-4">
         <dl>
           <div>
             <dt className="sr-only">Company</dt>
@@ -79,6 +79,7 @@ const Card2 = ({ data }) => {
         </div>
       </div>
     </NavLink>
+    </div>
   );
 };
 

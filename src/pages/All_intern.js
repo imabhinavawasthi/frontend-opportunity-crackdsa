@@ -48,7 +48,7 @@ const All_intern = ({frontend_intern, full_stack, backend_intern}) => {
   return (<div>
     <h1 className='font-semibold md:text-[35px] text-[20px] poppins-font text-[#110a60] md:mt-[37px] mt-[25px] md:ml-[44px] ml-[22px] capitalize'>{category} Internships</h1>
 
-    <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-5 sm:px-5'>
+    <div className='flex flex-wrap gap-10 xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-5 sm:px-5'>
         {internships.map((data,index)=>{
           return <Card2 data={data} key={index}/>
         })}

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Card2 = ({ data }) => {
   return (
-    <div className="shadow-sm rounded-md hover:shadow-md hover:-translate-y-1 transform-gpu">
+    <div className=" rounded-lg hover:shadow-md hover:-translate-y-1 border border-gray grow shrink basis-0 min-w-fit max-w-sm">
     <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
       <img
         src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
@@ -26,7 +26,7 @@ const Card2 = ({ data }) => {
           </div>
         </dl>
 
-        <div className="mt-6 flex items-center gap-8 text-xs">
+        <div className="mt-6 flex items-center gap-8 text-xs ">
           <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
             <svg
               className="h-4 w-4 text-indigo-700"

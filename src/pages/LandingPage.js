@@ -12,52 +12,54 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
   const [error2, seterror2] = useState("");
 
   const onOptionChangeHandler = (event) => {
-    setSearch(event.target.value);
+    setcategory(event.target.value);
+   
   };
+  console.log(category)
 
-  async function fetchsearch() {
-    try {
-      if (search === "By Skills") {
-        const res = await fetch(
-          `https://opportunity.run-ap-south1.goorm.site/jobs?skills=${category}`
-        );
-        const data = await res.json();
-        setSearching(true);
-        setdata(data);
-        console.log(data);
-      } else {
-        const res = await fetch(
-          `https://opportunity.run-ap-south1.goorm.site/jobs?tags=${category}`
-        );
-        const data = await res.json();
-        setSearching(true);
-        setdata(data);
-        console.log(data);
-      }
-    } catch (err) {
-      seterror2(err.message);
-    }
-  }
-  useEffect(() => {
-    if (category === "") {
-      setSearching(false);
-    }
-  }, [category]);
+  // async function fetchsearch() {
+  //   try {
+  //     if (search === "By Skills") {
+  //       const res = await fetch(
+  //         `https://opportunity.run-ap-south1.goorm.site/jobs?skills=${category}`
+  //       );
+  //       const data = await res.json();
+  //       setSearching(true);
+  //       setdata(data);
+  //       console.log(data);
+  //     } else {
+  //       const res = await fetch(
+  //         `https://opportunity.run-ap-south1.goorm.site/jobs?tags=${category}`
+  //       );
+  //       const data = await res.json();
+  //       setSearching(true);
+  //       setdata(data);
+  //       console.log(data);
+  //     }
+  //   } catch (err) {
+  //     seterror2(err.message);
+  //   }
+  // }
+  // useEffect(() => {
+  //   if (category === "") {
+  //     setSearching(false);
+  //   }
+  // }, [category]);
 
-  if (error !== "") {
-    return (
-      <h1 className="md:text-4xl text-xl text-indigo-600 font-mono text-center py-10">
-        {error}
-      </h1>
-    );
-  }
-  if (error2 !== "") {
-    return (
-      <h1 className="md:text-4xl text-xl text-indigo-600 font-mono text-center py-10">
-        {error2}
-      </h1>
-    );
-  }
+  // if (error !== "") {
+  //   return (
+  //     <h1 className="md:text-4xl text-xl text-indigo-600 font-mono text-center py-10">
+  //       {error}
+  //     </h1>
+  //   );
+  // }
+  // if (error2 !== "") {
+  //   return (
+  //     <h1 className="md:text-4xl text-xl text-indigo-600 font-mono text-center py-10">
+  //       {error2}
+  //     </h1>
+  //   );
+  // }
   if (loading) {
     return (
       <div className=" flex justify-center items-center 2xl:h-[63vh] lg:min-h-[53vh] md:h-[45vh] h-[55vh]">
@@ -82,20 +84,21 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
           </span>{" "}
           Here
         </h1>
-        {/* <div className=" flex flex-row justify-center md:mt-[20px] mt-[15px] mx-[10px] ">
-          <BiSearch
+        <div className=" flex flex-row justify-center md:mt-[20px] mt-[15px] mx-[10px] ">
+          {/* <BiSearch
             onClick={fetchsearch}
             className="md:text-[44px] text-[25px] h-[30px] text-[#110a60] bg-slate-200 md:h-[50px]  mb-[9px] rounded-l-[30px] pl-[11px] cursor-pointer"
-          />
-          <div className="relative ">
+          /> */}
             <select
               onChange={onOptionChangeHandler}
-              className="absolute  max-md:w-[80px] md:right-3 right-2 hover:text-gray-200 bg-[#110a60] text-white md:px-[8px] px-[3px] md:py-1 py-0 rounded-2xl md:top-[10px] top-[5px] md:text-base text-sm cursor-pointer"
+              className="md:h-[50px] h-[30px] md:w-[620px] text-[#110a60] w-[260px] md:text-2xl text-base font-semibold  bg-slate-200  md:px-5 px-2 cursor-pointer"
             >
-              <option>By Skills</option>
-              <option>By Category</option>
+            <option disabled selected hidden>Choose a Category</option>
+            {categories.map((cat,i)=>(
+              <option value={cat.value}>{cat.label}</option>
+            ))}
             </select>
-            <input
+            {/* <input
               name="search-type"
               placeholder="Press enter to search"
               value={category}
@@ -108,9 +111,9 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
               onChange={(e) => {
                 setcategory(e.target.value);
               }}
-            />
-          </div>
-        </div> */}
+            /> */}
+        
+        </div>
 
         {/* <h1 className="text-center poppins-font font-semibold lg:text-[40px] text-indigo-600 text-[23px] md:text-[30px] py-4 mx-[15px]">
           Top Internships Available Now

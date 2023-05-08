@@ -119,9 +119,9 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
           Top Internships Available Now
         </h1> */}
       </div>
-      {searching ? (
+      {category!=="" ? (
         <div className="lg:mx-[45px] mx-[22px] mt-4">
-          <Featuerd catogery="Top " internship={data} />
+          <Featuerd catogery="Top Results" internship={intern_data[category]} />
         </div>
       ) : (
         <div className="lg:mx-[45px] mx-[22px] md:mt-5 mt-4">

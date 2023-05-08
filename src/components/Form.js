@@ -90,10 +90,11 @@ const Form = () => {
     }
   }
   const categoryOptions = [
-    { value: ["backend"], label: "Backend Internships"},
-    { value: ["frontend"], label: "Frontend Internships" },
-    { value: ["full-stack"], label: "Full-Stack Internships" },
-    { value: ["scholarship"], label: "Scholarships" },
+    { value: "backend", label: "Backend Internships"},
+    { value: "frontend", label: "Frontend Internships" },
+    { value: "full-stack", label: "Full-Stack Internships" },
+    { value: "sde", label: "SDE Full Time" },
+    { value: "exclusive", label: "Exclusive Opportunities" },
   ];
 
   return (

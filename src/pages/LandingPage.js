@@ -82,7 +82,7 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
           </span>{" "}
           Here
         </h1>
-        <div className=" flex flex-row justify-center md:mt-[20px] mt-[15px] mx-[10px] ">
+        {/* <div className=" flex flex-row justify-center md:mt-[20px] mt-[15px] mx-[10px] ">
           <BiSearch
             onClick={fetchsearch}
             className="md:text-[44px] text-[25px] h-[30px] text-[#110a60] bg-slate-200 md:h-[50px]  mb-[9px] rounded-l-[30px] pl-[11px] cursor-pointer"
@@ -110,7 +110,7 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
               }}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* <h1 className="text-center poppins-font font-semibold lg:text-[40px] text-indigo-600 text-[23px] md:text-[30px] py-4 mx-[15px]">
           Top Internships Available Now
@@ -122,14 +122,14 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
         </div>
       ) : (
         <div className="lg:mx-[45px] mx-[22px] md:mt-5 mt-4">
-          {categories.map((cat) => {
+          {categories.map((cat,i) => {
             return (
               <Featuerd
-                key={cat}
-                catogery={cat}
+                key={i}
+                catogery={cat.label}
                 internship={
-                  intern_data[cat] !== "No items present"
-                    ? intern_data[cat].filter((intern) => {
+                  intern_data[cat.value] !== "No items present"
+                    ? intern_data[cat.value].filter((intern) => {
                         return intern.exclusive;
                       }).slice(0,3)
                     : ""

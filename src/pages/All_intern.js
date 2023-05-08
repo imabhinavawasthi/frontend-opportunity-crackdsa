@@ -49,9 +49,9 @@ const All_intern = () => {
     <h1 className='font-semibold md:text-[35px] text-[20px] poppins-font text-[#110a60] md:mt-[37px] mt-[25px] md:ml-[44px] ml-[22px] capitalize'>{category}</h1>
 
     <div className='flex flex-wrap gap-10 xl:justify-around justify-center flex-row flex-wrap pt-3 px-3 sm:pt-5 sm:px-5'>
-        {internships.map((data,index)=>{
+        {(internships!=="No items present")?internships.map((data,index)=>{
           return <Card2 data={data} key={index}/>
-        })}
+        }):<p className="flex justify-center py-4 text-2xl items-center text-indigo-600 font-bold">Currently Not Available</p>}
     </div>
          </div> 
   )

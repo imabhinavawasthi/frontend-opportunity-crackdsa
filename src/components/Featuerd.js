@@ -7,7 +7,9 @@ const Featuerd = ({catogery,internship}) => {
   
   return (
     <>
-     {(typeof(internship)==='string') ?"Not Available Currently": <>
+     {(typeof(internship)==='string') ?<>
+      <p className="flex justify-center py-4 text-2xl items-center text-indigo-600 font-bold">Currently Not Available</p>
+     </>: <>
     <div className='flex flex-row pt-[50px] justify-between'>
     <h1 className='poppins-font font-[500px] lg:text-[32px] capitalize md:text-2xl text-lg md:font-semibold text-[#110A60] inline-block'>{catogery} </h1>
     {(catogery!=='Top Results')?

@@ -3,6 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { Typewriter } from "react-simple-typewriter";
 import loder from "../images/loading.gif";
 import Featuerd from "../components/Featuerd";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = ({ intern_data, loading, categories, error }) => {
   const [category, setcategory] = useState("");
@@ -10,10 +11,9 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
   const [searching, setSearching] = useState(false);
   const [data, setdata] = useState([]);
   const [error2, seterror2] = useState("");
-
+const navigate=useNavigate();
   const onOptionChangeHandler = (event) => {
-    setcategory(event.target.value);
-   
+   navigate(`/${event.target.value}/all_intern`)
   };
   console.log(category)
 
@@ -95,7 +95,7 @@ const LandingPage = ({ intern_data, loading, categories, error }) => {
             >
             <option disabled selected hidden>Choose a Category</option>
             {categories.map((cat,i)=>(
-              <option value={cat.value}>{cat.label}</option>
+              <option value={cat.label}>{cat.label}</option>
             ))}
             </select>
             {/* <input

@@ -91,7 +91,7 @@ const navigate=useNavigate();
           /> */}
             <select
               onChange={onOptionChangeHandler}
-              className="md:h-[50px] h-[30px] md:w-[620px] text-[#110a60] w-[260px] md:text-2xl text-base font-semibold  bg-slate-200  md:px-5 px-2 cursor-pointer"
+              className="md:h-[50px] h-[30px] md:w-[620px] text-[#110a60] w-[260px] md:text-2xl text-base font-semibold  bg-slate-200 rounded-3xl md:px-5 px-2 cursor-pointer"
             >
             <option disabled selected hidden>Choose a Category</option>
             {categories.map((cat,i)=>(

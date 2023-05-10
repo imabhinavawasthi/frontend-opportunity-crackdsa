@@ -95,7 +95,7 @@ const navigate=useNavigate();
             >
             <option disabled selected hidden>Choose a Category</option>
             {categories.map((cat,i)=>(
-              <option value={cat.label}>{cat.label}</option>
+              <option value={cat.value}>{cat.label}</option>
             ))}
             </select>
             {/* <input

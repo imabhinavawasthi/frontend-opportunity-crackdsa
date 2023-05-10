@@ -40,13 +40,17 @@ const Form = () => {
       }));
   }
 
+
   async function post(e) {
     e.preventDefault();
     setposting(true);
     let form = new FormData(document.getElementById("form"));
     form.set("live", live);
     form.set("exclusive", exclusive);
-    form.set("requirements", data.requirements.split("\n"));
+    // form.set("requirements", data.requirements.split("\n"));
+    for(let it of data.requirements.split(",")){
+      form.append("requirements",it);
+    }
     form.set("tags", data.tags);
 
     try {
@@ -59,6 +63,7 @@ const Form = () => {
       };
 
       const response = await fetch(
+        
         "https://opportunity.run-ap-south1.goorm.site/jobs",
         options
       );
@@ -191,7 +196,7 @@ const Form = () => {
             className="inp"
             rows="10"
             cols="30"
-            placeholder="Enter 1 requirement per line "
+            placeholder="write requirements , seperated"
             id="requirements"
             name="requirements"
             value={data.requirements}

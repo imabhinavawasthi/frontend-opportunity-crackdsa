@@ -5,7 +5,7 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
   const [company, setcompany] = useState(data.company);
   const [tags, settags] = useState(data.tags);
   const [skills, setskills] = useState(data.skills);
-  const [requirements, setrequirements] = useState(data.requirements);
+  const [requirements, setrequirements] = useState(data.requirements.join(","));
 
   const [desc, setdesc] = useState(data.desc);
   const [startdate, setstartdate] = useState(data.startdate.split("T")[0]);
@@ -27,6 +27,10 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
     { value: "sde", label: "SDE Full Time" },
     { value: "exclusive", label: "Exclusive Opportunities" },
   ];
+  let current ;
+  for(let item of categoryOptions){
+    if(item.value == tags[0]) current=item;
+  }
   function handleoptions(e) {
     settags(e.value);
   }
@@ -38,12 +42,10 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
       let form = new FormData(document.getElementById("form3"));
       form.set("live", live);
       form.set("exclusive", exclusive);
-      form.set(
-        "requirements",
-        typeof requirements === "string"
-          ? requirements.split("\n")
-          : requirements
-      );
+      for(let it of requirements.split(",")){
+        form.append("requirements",it);
+      }
+      
       form.set("tags", tags);
       let params = new URLSearchParams(form).toString();
       console.log(form.get("live"), live);
@@ -136,6 +138,7 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
           placeholder="Category"
           classNamePrefix="react-select"
           onChange={handleoptions}
+          defaultValue={current}
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,

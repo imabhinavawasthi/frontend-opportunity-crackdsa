@@ -42,6 +42,7 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
       let form = new FormData(document.getElementById("form3"));
       form.set("live", live);
       form.set("exclusive", exclusive);
+      form.delete("requirements");
       for(let it of requirements.split(",")){
         form.append("requirements",it);
       }

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import CreateAdmin from "./CreateAdmin";
 import Select from "react-select";
-
+import { useNavigate } from "react-router-dom";
 const Form = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     title: "",
     company: "",
@@ -65,6 +66,7 @@ const Form = () => {
       console.log(data);
       setPosted(true);
       setposting(false);
+      navigate(`/${data._id}/${data?.title.replaceAll(" ", "-")}`);
       setTimeout(() => {
         setData({
           title: "",
@@ -84,6 +86,7 @@ const Form = () => {
         setexclusive(false);
         setPosted(false);
       }, 2000);
+     
     } catch (err) {
       console.log(err.message);
       setposting(false);

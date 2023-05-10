@@ -48,6 +48,7 @@ const Form = () => {
     form.set("live", live);
     form.set("exclusive", exclusive);
     // form.set("requirements", data.requirements.split("\n"));
+    form.delete("requirements");
     for(let it of data.requirements.split(",")){
       form.append("requirements",it);
     }

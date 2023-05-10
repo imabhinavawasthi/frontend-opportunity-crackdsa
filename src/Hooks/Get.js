@@ -10,6 +10,13 @@ const [intern_data,setintern]=useState({
   'full-stack' :[]
 })
 const category=['full-stack', 'frontend','backend']
+const categoryOptions = [
+  { value: "backend", label: "Backend Internships"},
+  { value: "frontend", label: "Frontend Internships" },
+  { value: "full-stack", label: "Full-Stack Internships" },
+  { value: "sde", label: "SDE Full Time" },
+  { value: "exclusive", label: "Exclusive Opportunities" },
+];
 const base_url='https://opportunity.run-ap-south1.goorm.site'
 
 
@@ -20,14 +27,14 @@ useEffect(()=>{
 async function getintern(){
   
     setloading(true)
-    category.forEach(async (itm,index)=>{
+    categoryOptions.forEach(async (itm,index)=>{
       try{
-        const res =await fetch(base_url+`/jobs?tags=${itm}`)
+        const res =await fetch(base_url+`/jobs?tags=${itm.value}`)
         const data= await res.json()
         setintern((prev)=>
           ({
             ...prev,
-            [itm]:data
+            [itm.value]:data
           })
         )
       }catch(err){
@@ -49,7 +56,7 @@ getintern()
 },[])
 console.log(intern_data)
 
-  return {intern_data,loading, category,error}
+  return {intern_data,loading, category,categoryOptions,error}
 }
 
 export default Get

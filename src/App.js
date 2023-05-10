@@ -16,14 +16,14 @@ import Form from './components/Form';
 import Rootlayout from './layout/Rootlayout';
 function App() {
   
-  const { intern_data, loading, category,error } = Get()
+  const { intern_data, loading, category,categoryOptions,error } = Get()
  
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<Rootlayout />} >
-          <Route exact path='/' element={<LandingPage intern_data={intern_data} categories={category} loading={loading} error={error} />} />
+          <Route exact path='/' element={<LandingPage intern_data={intern_data} categories={categoryOptions} loading={loading} error={error} />} />
           <Route exact path=':id/:title' element={<MoreDetails2 />} />
           <Route exact path=':category/all_intern' element={<AllIntern />} />
           <Route exact path='/admin' element={<Admin/>}/>

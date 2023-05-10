@@ -6,19 +6,21 @@ import { NavLink } from "react-router-dom"
 const Featuerd = ({catogery,internship}) => {
   
   return (
-    
-     
-      <>
+    <>
+     {(typeof(internship)==='string') ?<>
+      {/* <p className="flex justify-center py-4 text-2xl items-center text-indigo-600 font-bold">Currently Not Available</p> */}
+     </>: <>
     <div className='flex flex-row pt-[50px] justify-between'>
-    <h1 className='poppins-font font-[500px] lg:text-[32px] capitalize md:text-2xl text-lg md:font-semibold text-[#110A60] inline-block'>{catogery} Internships</h1>
+    <h1 className='poppins-font font-[500px] lg:text-[32px] capitalize md:text-2xl text-lg md:font-semibold text-[#110A60] inline-block'>{catogery} </h1>
     {(catogery!=='Top Results')?
    <NavLink to={`${catogery}/all_intern`}> <p className='sm:text-xl text-lg text-blue-500 cursor-pointer capitalize hover:text-blue-800 '>see  all</p></NavLink>:''}
     </div>
     <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 gap-10 px-3 sm:pt-7 sm:px-5 '>
-        {(typeof(internship)==='string') ?<h2 className="text-xl md:text-4xl font-semibold text-indigo-600 font-mono py-8">No results</h2>:internship.map((data,index)=>{
+       {internship.map((data,index)=>{
           return <Card2 data={data} key={index}/>
         })}
     </div>
+    </>}
     </>
     
     

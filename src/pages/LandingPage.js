@@ -82,7 +82,7 @@ const navigate=useNavigate();
               typeSpeed={180}
             />
           </span>{" "}
-          Here
+          Here 🚀
         </h1>
         <div className=" flex flex-row justify-center md:mt-[20px] mt-[15px] mx-[10px] ">
           {/* <BiSearch

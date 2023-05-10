@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom" 
  import Card from "./Card"
  import Card2 from "./Card2"
+ import Card3 from "./Card3"
+ import Card4 from "./Card4"
 
 
 const Featuerd = ({catogery,internship}) => {
@@ -17,7 +19,7 @@ const Featuerd = ({catogery,internship}) => {
     </div>
     <div className='flex xl:justify-around justify-center flex-row flex-wrap pt-3 gap-10 px-3 sm:pt-7 sm:px-5 '>
        {internship.map((data,index)=>{
-          return <Card2 data={data} key={index}/>
+          return <Card4 data={data} key={index}/>
         })}
     </div>
     </>}

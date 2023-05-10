@@ -130,6 +130,7 @@ const navigate=useNavigate();
               <Featuerd
                 key={i}
                 catogery={cat.label}
+                catvalue={cat.value}
                 internship={
                   intern_data[cat.value] !== "No items present"
                     ? intern_data[cat.value].filter((intern) => {

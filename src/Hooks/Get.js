@@ -7,9 +7,11 @@ const [loading ,setloading]=useState(true)
 const [intern_data,setintern]=useState({
   'frontend':[],
   'backend':[],
-  'full-stack' :[]
+  'full-stack' :[],
+  'sde' :[],
+  'exclusive' :[]
 })
-const category=['full-stack', 'frontend','backend']
+const category=['full-stack', 'frontend','backend','sde','exclusive']
 const categoryOptions = [
   { value: "backend", label: "Backend Internships"},
   { value: "frontend", label: "Frontend Internships" },

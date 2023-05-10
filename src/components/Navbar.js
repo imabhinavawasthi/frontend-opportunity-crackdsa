@@ -11,7 +11,7 @@ const Navbar = () => {
                         <nav className="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
                           <NavLink to='/' className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</NavLink>
                             <a href="https://crackdsa.com/" target="_blank" className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">crackDSA.com</a>
-                            <a href="https://launchpadx.crackdsa.com/" target="_blank" className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">LaunchPadx</a>
+                            <NavLink to='/about' className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">About Us</NavLink>
                           
                         </nav>
                     </div>

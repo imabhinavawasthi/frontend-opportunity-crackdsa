@@ -88,7 +88,8 @@ const MoreDetails2 = () => {
                         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 capitalize">{data.title}
                            
                         </h1>
-                        <p className="mb-8 leading-relaxed">{data.desc}</p>
+                        <p className=" sm:text-2xl text-1xl leading-relaxed ">🏢 {data.company}</p>
+                        <p className="mb-8 sm:text-2xl text-1xl leading-relaxed ">📍 {data.location}</p>
                         <div className="flex justify-center">
                             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                             <a href={data.url} target='_blank' rel="noreferrer">Apply Now</a>
@@ -99,6 +100,17 @@ const MoreDetails2 = () => {
                     <div className="mx-10 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                         <img className="object-cover object-center rounded" alt="hero" src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                     </div>
+                </div>
+            </section>
+            <section className="text-gray-700 body-font border-t border-gray-200">
+                <div className="container px-5 py-24 mx-auto">
+                    <div className="flex flex-col text-center w-full mb-20">
+                        {/* <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2> */}
+                        <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">Desciption</h1>
+                    </div>
+                    <p>
+                    {data.desc}
+                    </p>
                 </div>
             </section>
             <section className="text-gray-700 body-font border-t border-gray-200">

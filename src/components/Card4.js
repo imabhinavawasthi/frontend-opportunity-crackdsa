@@ -75,7 +75,7 @@ console.log(data);
                                 <p class="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
                                 <img src={durationpng} className="inline-block w-5 h-5 xl:w-4 xl:h-4 mr-3 fill-current text-gray-800"/>
                                     <span class="mt-2 xl:mt-0">
-                                    Duration: {data.duration} Months
+                                    Duration: {data.duration}
                                     </span>
                                 </p>
                                 {/* <p class="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">

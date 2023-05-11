@@ -86,7 +86,7 @@ console.log(data);
                                 </p> */}
                             </div>
 
-                            <div class="grid grid-cols-2 mt-8">
+                            <div class="grid grid-cols-1 mt-8">
                                 <div class="flex items-center">
                                     <div class="relative">
                                         <div class="rounded-full w-6 h-6 md:w-8 md:h-8 bg-gray-200">
@@ -103,14 +103,14 @@ console.log(data);
                                     </p>
                                 </div>
 
-                                <div class="flex justify-end">
+                                {/* <div class="flex justify-end">
                                     <p class="inline-block font-semibold text-primary whitespace-nowrap leading-tight rounded-xl">
                                         <span class="text-sm uppercase">
                                         ₹
                                         </span>
                                         <span class="text-lg">{data.stipend}</span>/m
                                     </p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                 </div>

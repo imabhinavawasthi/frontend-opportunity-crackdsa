@@ -133,9 +133,7 @@ const navigate=useNavigate();
                 catvalue={cat.value}
                 internship={
                   intern_data[cat.value] !== "No items present"
-                    ? intern_data[cat.value].filter((intern) => {
-                        return intern.exclusive;
-                      }).slice(0,3)
+                    ? intern_data[cat.value].slice(0,3)
                     : ""
                 }
                 loading={loading}

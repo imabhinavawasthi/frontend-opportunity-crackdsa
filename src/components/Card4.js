@@ -20,7 +20,7 @@ console.log(data);
                         <div class="shadow p-4 rounded-lg bg-white">
                             <div class="flex justify-center relative rounded-lg overflow-hidden h-52">
                                 <div class="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
-                                    <div class="absolute inset-0 bg-black">
+                                    <div class="absolute inset-0 flex align-super">
                                         <img src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                                     </div>
                                 </div>

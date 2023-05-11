@@ -103,7 +103,7 @@ const MoreDetails2 = () => {
                 </div>
             </section>
             <section className="text-gray-700 body-font border-t border-gray-200">
-                <div className="container px-5 py-24 mx-auto">
+                <div className="container p-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-20">
                         {/* <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2> */}
                         <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">Desciption</h1>
@@ -193,7 +193,7 @@ const MoreDetails2 = () => {
             <section className="text-gray-700 body-font border-t border-gray-200">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap justify-center">
                     <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden flex justify-center">
-                        <img alt="feature" className="object-cover object-center " src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
+                        <img alt="feature" className="object-contain object-center " src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                     </div>
                     <div className="flex flex-col flex-wrap justify-center  lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                         <div className="flex flex-col mb-10 lg:items-start items-center">

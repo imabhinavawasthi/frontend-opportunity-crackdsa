@@ -8,7 +8,7 @@ const Error404 = () => {
   return (
     <div>
         <div className='error-page-css'>
-          <div>
+          {/* <div>
             <svg className='svg-color-css' width="1123" height="837" viewBox="0 0 1123 837" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="1123" height="837" fill="white" />
               <g id="sky" filter="url(#filter0_d)">
@@ -97,7 +97,7 @@ const Error404 = () => {
                 </linearGradient>
               </defs>
             </svg>
-          </div>
+          </div> */}
           <div class="text div-error-css">
             <h1 style={{ color: "#F66947" }} className='h1-error-css'>404 Error</h1>
             <h2>Couldn't launch :(</h2>

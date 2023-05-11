@@ -3,6 +3,7 @@
     height: 95vh;
     background: white;
     text-align: center;
+    align-items: center;
     color: #E0E0E0;
     font-family: 'Fira Mono', monospace;
     color: var(--theme-color);
@@ -13,6 +14,7 @@
 }
 .div-error-css{
     transform-style: preserve-3d;
+    margin-top: 200px;
 }
 .svg-color-css{
     width: clamp(300px , 70% , 600px);

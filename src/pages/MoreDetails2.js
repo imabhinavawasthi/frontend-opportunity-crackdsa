@@ -122,8 +122,8 @@ const MoreDetails2 = () => {
                     <div className="flex flex-wrap -m-4">
 
                     {data.skills.map((detail)=>{
-          return  <div className="p-4 md:w-1/3">
-                            <div className="flex rounded-lg bg-gray-100 p-8 flex-col">
+          return  <div className="p-2 md:w-1/3">
+                            <div className="flex rounded-lg bg-gray-100 p-4 flex-col">
                                 <div className="flex items-center mb-3">
                                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
                                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -261,8 +261,8 @@ const MoreDetails2 = () => {
                     </div>
                     <div className="flex flex-wrap -m-4">
                     {data.requirements.map((detail)=>{
-          return  <div className="xl:w-1/3 md:w-1/2 p-4">
-                            <div className="border border-gray-300 p-6 rounded-lg">
+          return  <div className="xl:w-1/3 md:w-1/2 p-2">
+                            <div className="border border-gray-300 p-4 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" class="w-6 h-6" viewBox="0 0 24 24">
                                         <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>

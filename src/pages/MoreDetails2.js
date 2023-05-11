@@ -11,6 +11,7 @@ import Deleate from '../components/Deleate';
 import Update from '../components/Update';
 
 const MoreDetails2 = () => {
+    
     const { id } = useParams()
 
     const token = localStorage.getItem('token')
@@ -57,6 +58,7 @@ const MoreDetails2 = () => {
             <img src={loder} className='h-[250px] w-[250px] ' alt='spinner' />
         </div>)
     }
+    document.title=data.title
     return (
         <div>
             {/* <header className="text-gray-700 body-font border-b border-gray-200">

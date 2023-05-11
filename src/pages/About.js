@@ -1,4 +1,11 @@
 import React from 'react'
+import narendramohanpathak from "../images/team/narendramohanpathak.jpg"
+import priyanshidhanuka from "../images/team/priyanshidhanuka.jpg"
+import shyammohangupta from "../images/team/shyammohangupta.jpeg"
+import ramandeepsingh from "../images/team/ramandeepsingh.jpeg"
+import utsavyadav from "../images/team/utsavyadav.jpeg"
+import rajavjain from "../images/team/rajavjain.jpeg"
+import vibhavyadav from "../images/team/vibhavyadav.jpeg"
 
 const About = () => {
     return (
@@ -35,7 +42,7 @@ Visit today and start your journey to a successful career in data science!
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={narendramohanpathak} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Narendra Mohan Pathak</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -44,7 +51,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/84x84/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={priyanshidhanuka} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Priyanshi Dhanuka</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -53,7 +60,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/88x88/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={shyammohangupta} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Shyam Mohan Gupta</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -62,7 +69,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/90x90/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={rajavjain} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Rajav Jain</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -71,7 +78,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/94x94/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={utsavyadav} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Utsav Yadav</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -80,7 +87,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/98x98/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ramandeepsingh} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Ramandeep Singh</h2>
                                     <p className="text-gray-500">Development Team</p>
@@ -89,7 +96,7 @@ Visit today and start your journey to a successful career in data science!
                         </div>
                         <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                             <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/100x90/edf2f7/a5afbd" />
+                                <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={vibhavyadav} />
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 title-font font-medium">Vibhav Yadav</h2>
                                     <p className="text-gray-500">Development Team</p>

@@ -15,6 +15,7 @@ import Form from './components/Form';
 //import rootlayout
 import Rootlayout from './layout/Rootlayout';
 import About from './pages/About.js';
+import Error404 from './pages/Error404.js';
 function App() {
   
   const { intern_data, loading, category,categoryOptions,error } = Get()
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/admin' element={<Admin/>}/>
           <Route exact path='/newpost' element={<Form/>}/>
           <Route exact path='/about' element={<About/>}/>
+          <Route path="*" element={<Error404/>} />
           </Route>
         </Routes>
       </BrowserRouter>

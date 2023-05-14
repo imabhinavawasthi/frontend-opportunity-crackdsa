@@ -12,21 +12,21 @@ function convertDate(date_str) {
   var temp_date = date_str.split("-");
   return temp_date[2] + " " + months[Number(temp_date[1]) - 1] + " " + temp_date[0];
 }
-console.log(data);
+// console.log(data);
     return (
         <div>
-            <NavLink class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full" to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
-                <div class="relative mx-auto w-full">
-                        <div class="shadow p-4 rounded-lg bg-white">
-                            <div class="flex justify-center relative rounded-lg overflow-hidden h-52">
-                                <div class="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
-                                    <div class="absolute inset-0 flex align-super">
+            <NavLink className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full" to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
+                <div className="relative mx-auto w-full">
+                        <div className="shadow p-4 rounded-lg bg-white">
+                            <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
+                                <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
+                                    <div className="absolute inset-0 flex align-super">
                                         <img src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
                                     </div>
                                 </div>
 
-                                <div class="absolute flex justify-center bottom-0 mb-3">
-                                    <div class="flex bg-white px-4 py-1 space-x-5 rounded-lg overflow-hidden shadow">
+                                <div className="absolute flex justify-center bottom-0 mb-3">
+                                    <div className="flex bg-white px-4 py-1 space-x-5 rounded-lg overflow-hidden shadow">
                                         <p>Apply Now</p>
                                         {/* <p class="flex items-center font-medium text-gray-800">
                                             <svg class="w-5 h-5 fill-current mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M480,226.15V80a48,48,0,0,0-48-48H80A48,48,0,0,0,32,80V226.15C13.74,231,0,246.89,0,266.67V472a8,8,0,0,0,8,8H24a8,8,0,0,0,8-8V416H480v56a8,8,0,0,0,8,8h16a8,8,0,0,0,8-8V266.67C512,246.89,498.26,231,480,226.15ZM64,192a32,32,0,0,1,32-32H208a32,32,0,0,1,32,32v32H64Zm384,32H272V192a32,32,0,0,1,32-32H416a32,32,0,0,1,32,32ZM80,64H432a16,16,0,0,1,16,16v56.9a63.27,63.27,0,0,0-32-8.9H304a63.9,63.9,0,0,0-48,21.71A63.9,63.9,0,0,0,208,128H96a63.27,63.27,0,0,0-32,8.9V80A16,16,0,0,1,80,64ZM32,384V266.67A10.69,10.69,0,0,1,42.67,256H469.33A10.69,10.69,0,0,1,480,266.67V384Z"></path></svg>
@@ -45,13 +45,13 @@ console.log(data);
                                     </div>
                                 </div>
 
-                                <span class="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none">
+                                <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none">
                                     {(data.exclusive===true)?"Exclusive":"Featured"}
                                 </span>
                             </div>
 
-                            <div class="mt-4">
-                                <h2 class="font-medium text-base md:text-lg text-gray-800 line-clamp-1" title="New York">
+                            <div className="mt-4">
+                                <h2 className="font-medium text-base md:text-lg text-gray-800 line-clamp-1" title="New York">
                                     {data.title}
                                 </h2>
                                 {/* <p class="mt-2 text-sm text-gray-800 line-clamp-1" title="New York, NY 10004, United States">
@@ -59,22 +59,22 @@ console.log(data);
                                 </p> */}
                             </div>
 
-                            <div class="grid grid-cols-1 grid-rows-2 gap-4 mt-5 p-2">
-                                <p class="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
+                            <div className="grid grid-cols-1 grid-rows-2 gap-4 mt-5 p-2">
+                                <p className="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
                                     <img src={locationpng} className="inline-block w-5 h-5 xl:w-4 xl:h-4 mr-3 fill-current text-gray-800"/>
-                                    <span class="mt-2 xl:mt-0">
+                                    <span className="mt-2 xl:mt-0">
                                     {data.location}
                                     </span>
                                 </p>
-                                <p class="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
+                                <p className="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
                                     <img src={calendarpng} className="inline-block w-5 h-5 xl:w-4 xl:h-4 mr-3 fill-current text-gray-800"/>
-                                    <span class="mt-2 xl:mt-0">
+                                    <span className="mt-2 xl:mt-0">
                                     Last Date to Apply: {convertDate(data.lastdate.slice(0, 10))}
                                     </span>
                                 </p>
-                                <p class="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
+                                <p className="inline-flex flex-col xl:flex-row xl:items-center text-gray-800">
                                 <img src={durationpng} className="inline-block w-5 h-5 xl:w-4 xl:h-4 mr-3 fill-current text-gray-800"/>
-                                    <span class="mt-2 xl:mt-0">
+                                    <span className="mt-2 xl:mt-0">
                                     Duration: {data.duration}
                                     </span>
                                 </p>
@@ -86,19 +86,19 @@ console.log(data);
                                 </p> */}
                             </div>
 
-                            <div class="grid grid-cols-1 mt-8">
-                                <div class="flex items-center">
-                                    <div class="relative">
-                                        <div class="rounded-full w-6 h-6 md:w-8 md:h-8 bg-gray-200">
+                            <div className="grid grid-cols-1 mt-8">
+                                <div className="flex items-center">
+                                    <div className="relative">
+                                        <div className="rounded-full w-6 h-6 md:w-8 md:h-8 bg-gray-200">
                                         <img src={employeepng} />
                                         </div>
                                     
-                                        <span class="absolute top-0 right-0 inline-block w-3 h-3 bg-primary-red rounded-full">
+                                        <span className="absolute top-0 right-0 inline-block w-3 h-3 bg-primary-red rounded-full">
                                         
                                         </span>
                                     </div>
 
-                                    <p class="ml-2 text-gray-800 line-clamp-1">
+                                    <p className="ml-2 text-gray-800 line-clamp-1">
                                     {data.company}
                                     </p>
                                 </div>

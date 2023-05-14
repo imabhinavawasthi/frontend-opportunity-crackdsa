@@ -56,7 +56,7 @@ async function getintern(){
 getintern()
 
 },[])
-console.log(intern_data)
+// console.log(intern_data)
 
   return {intern_data,loading, category,categoryOptions,error}
 }

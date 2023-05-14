@@ -15,7 +15,7 @@ const navigate=useNavigate();
   const onOptionChangeHandler = (event) => {
    navigate(`/${event.target.value}/all_intern`)
   };
-  console.log(category)
+  // console.log(category)
 
   // async function fetchsearch() {
   //   try {
@@ -92,10 +92,11 @@ const navigate=useNavigate();
             <select
               onChange={onOptionChangeHandler}
               className="md:h-[50px] h-[30px] md:w-[620px] text-[#110a60] w-[260px] md:text-2xl text-base font-semibold  bg-slate-200 rounded-3xl md:px-5 px-2 cursor-pointer"
+              defaultValue="default"
             >
-            <option disabled selected hidden>Choose a Category</option>
+            <option disabled hidden value="default">Choose a Category</option>
             {categories.map((cat,i)=>(
-              <option value={cat.value}>{cat.label}</option>
+              <option key={cat.value} value={cat.value}>{cat.label}</option>
             ))}
             </select>
             {/* <input
@@ -133,7 +134,7 @@ const navigate=useNavigate();
                 catvalue={cat.value}
                 internship={
                   intern_data[cat.value] !== "No items present"
-                    ? intern_data[cat.value].slice(0,3)
+                    ? intern_data[cat.value].slice().reverse().slice(0,3)
                     : ""
                 }
                 loading={loading}

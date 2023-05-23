@@ -4,6 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 import loder from "../images/loading.gif";
 import Featuerd from "../components/Featuerd";
 import { useNavigate } from "react-router-dom";
+import telegram from "../images/telegram.png"
 
 const LandingPage = ({ intern_data, loading, categories, error }) => {
   const [category, setcategory] = useState("");
@@ -116,9 +117,10 @@ const navigate=useNavigate();
         
         </div>
 
-        {/* <h1 className="text-center poppins-font font-semibold lg:text-[40px] text-indigo-600 text-[23px] md:text-[30px] py-4 mx-[15px]">
-          Top Internships Available Now
-        </h1> */}
+        <h1 className="text-center poppins-font font-semibold  py-4 mx-[15px]">
+        Join <a style={{color:"#0088cc", textDecoration:"underline"}} href="https://t.me/crackdsajobsearch" target="_blank">Telegram Group</a> for Daily Job/Internships Update.
+        </h1>
+        
       </div>
       {category!=="" ? (
         <div className="lg:mx-[45px] mx-[22px] mt-4">

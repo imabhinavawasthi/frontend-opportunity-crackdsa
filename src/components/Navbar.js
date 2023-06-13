@@ -19,7 +19,8 @@ const Navbar = () => {
                     
                         <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end">
                             <button >
-                            <a href="https://bit.ly/AA_MayCodeRush" target="_blank" className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Free Goodies 🔥 Register Now 🚀</a>
+                            {/* <a href="https://bit.ly/AA_MayCodeRush" target="_blank" className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Free Goodies 🔥 Register Now 🚀</a> */}
+                            <NavLink to="/gfg-courses" className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Flat 10% Off 🔥 GFG Courses 🚀</NavLink>
             
                             </button>
                         </div>

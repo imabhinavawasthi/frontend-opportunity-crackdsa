@@ -8,7 +8,7 @@ const Card3 = ({ data }) => {
     <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
     <picture class="rounded-lg overflow-hidden block">
     <img
-        src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
+        src={"https://opportunity.run-ap-south1.goorm.io" + data.image}
         alt=""
         className="hover:scale-125 ease-in duration-150 h-56 w-full rounded-md object-contain"
       />

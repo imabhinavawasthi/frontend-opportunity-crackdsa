@@ -22,7 +22,7 @@ const navigate=useNavigate();
   //   try {
   //     if (search === "By Skills") {
   //       const res = await fetch(
-  //         `https://opportunity.run-ap-south1.goorm.site/jobs?skills=${category}`
+  //         `https://opportunity.run-ap-south1.goorm.io/jobs?skills=${category}`
   //       );
   //       const data = await res.json();
   //       setSearching(true);
@@ -30,7 +30,7 @@ const navigate=useNavigate();
   //       console.log(data);
   //     } else {
   //       const res = await fetch(
-  //         `https://opportunity.run-ap-south1.goorm.site/jobs?tags=${category}`
+  //         `https://opportunity.run-ap-south1.goorm.io/jobs?tags=${category}`
   //       );
   //       const data = await res.json();
   //       setSearching(true);

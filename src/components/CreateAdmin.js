@@ -24,7 +24,7 @@ const CreateAdmin = ({show,onClose}) => {
               body: params,
           }
         
-          const response=await fetch('https://opportunity.run-ap-south1.goorm.site/admin/newadmin', options)
+          const response=await fetch('https://opportunity.run-ap-south1.goorm.io/admin/newadmin', options)
           const data=await response.json();
           console.log(data)
           setCreated(true)

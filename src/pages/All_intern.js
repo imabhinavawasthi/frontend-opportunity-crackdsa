@@ -24,7 +24,7 @@ const All_intern = ({ categories }) => {
     async function getintern() {
       setloading(true)
       try {
-        const res = await fetch(`https://opportunity.run-ap-south1.goorm.site/jobs?tags=${category}`)
+        const res = await fetch(`https://opportunity.run-ap-south1.goorm.io/jobs?tags=${category}`)
         const data = await res.json()
         setinternships(data)
         setloading(false)

@@ -22,7 +22,7 @@ let internname=data.title
                             <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
                                 <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
                                     <div className="absolute inset-0 flex align-super">
-                                        <img src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
+                                        <img src={"https://opportunity.run-ap-south1.goorm.io" + data.image} />
                                     </div>
                                 </div>
 

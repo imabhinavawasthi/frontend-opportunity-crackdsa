@@ -65,7 +65,7 @@ const Form = () => {
 
       const response = await fetch(
         
-        "https://opportunity.run-ap-south1.goorm.site/jobs",
+        "https://opportunity.run-ap-south1.goorm.io/jobs",
         options
       );
       const data = await response.json();

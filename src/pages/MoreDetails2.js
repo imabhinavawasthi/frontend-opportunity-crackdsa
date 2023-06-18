@@ -34,7 +34,7 @@ const MoreDetails2 = () => {
         const get = async () => {
             setloading(true)
             try {
-                const res = await fetch('https://opportunity.run-ap-south1.goorm.site/jobs/' + id)
+                const res = await fetch('https://opportunity.run-ap-south1.goorm.io/jobs/' + id)
                 const item = await res.json()
                 // console.log(item)
                 setdata(item)
@@ -98,7 +98,7 @@ const MoreDetails2 = () => {
                         </div>
                     </div>
                     <div className="mx-10 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img className="object-cover object-center rounded" alt="hero" src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
+                        <img className="object-cover object-center rounded" alt="hero" src={"https://opportunity.run-ap-south1.goorm.io" + data.image} />
                     </div>
                 </div>
             </section>
@@ -193,7 +193,7 @@ const MoreDetails2 = () => {
             <section className="text-gray-700 body-font border-t border-gray-200">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap justify-center">
                     <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden flex justify-center">
-                        <img alt="feature" className="object-contain object-center " src={"https://opportunity.run-ap-south1.goorm.site" + data.image} />
+                        <img alt="feature" className="object-contain object-center " src={"https://opportunity.run-ap-south1.goorm.io" + data.image} />
                     </div>
                     <div className="flex flex-col flex-wrap justify-center  lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                         <div className="flex flex-col mb-10 lg:items-start items-center">

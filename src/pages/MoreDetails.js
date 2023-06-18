@@ -31,7 +31,7 @@ const MoreDetails = () => {
       const get=async()=>{
         setloading(true)
          try{
-          const res=await fetch('https://opportunity.run-ap-south1.goorm.site/jobs/'+id)
+          const res=await fetch('https://opportunity.run-ap-south1.goorm.io/jobs/'+id)
           const item= await res.json()
           console.log(item)
           setdata(item)
@@ -63,7 +63,7 @@ if(error!==''){
       <div className=' sm:pb-4 pb-2  flex items-center lg:flex-row flex-col'>
         <div className=' flex items-center w-[100%] space-x-4 sm:space-x-6 lg:space-x-12 lg:px-5 sm:px-3 px-2 '>
           <div className='lg:h-[230px] sm:h-32 h-25 rounded-full '>
-            <img src={'https://opportunity.run-ap-south1.goorm.site'+data.image} alt="" className='lg:h-[250px] lg:w-[250px] rounded-full sm:h-32 sm:w-32 h-25 w-25 ' />
+            <img src={'https://opportunity.run-ap-south1.goorm.io'+data.image} alt="" className='lg:h-[250px] lg:w-[250px] rounded-full sm:h-32 sm:w-32 h-25 w-25 ' />
           </div>
           <div className='lg:ml-[52px]  mt-4'>
             <h1 className='font-Poppins text-[#2FCDFF]  lg:mt-[2px] lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold capitalize'>{data.title}</h1>

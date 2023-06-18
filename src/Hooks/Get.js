@@ -19,7 +19,7 @@ const categoryOptions = [
   { value: "sde", label: "SDE Full Time" },
   { value: "exclusive", label: "Exclusive Opportunities" },
 ];
-const base_url='https://opportunity.run-ap-south1.goorm.site'
+const base_url='https://opportunity.run-ap-south1.goorm.io'
 
 
 

@@ -74,7 +74,7 @@ const Update = ({ data, token, uptodate, id, setpop }) => {
       }
 
       const response = await fetch(
-        "https://opportunity.run-ap-south1.goorm.site/jobs/" + id,
+        "https://opportunity.run-ap-south1.goorm.io/jobs/" + id,
         options
       );
       const data = await response.json();

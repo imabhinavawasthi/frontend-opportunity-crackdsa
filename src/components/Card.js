@@ -6,7 +6,7 @@ const Card = ({ data }) => {
     <div className="w-72 lg:w-[300px]  hover:shadow-lg rounded-3xl sm:mb-10 mb-8 xl:mx-2 sm:mx-5 ">
       <div className="bg-[#110A60] flex justify-between p-5 items-center rounded-t-3xl">
         <img
-          src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
+          src={"https://opportunity.run-ap-south1.goorm.io" + data.image}
           alt=""
           className="h-16 w-16 rounded-[50%]"
         />

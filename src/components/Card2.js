@@ -6,7 +6,7 @@ const Card2 = ({ data }) => {
     <div className=" rounded-lg hover:shadow-md hover:-translate-y-1 border border-gray grow shrink basis-0 min-w-fit max-w-sm">
     <NavLink to={`/${data._id}/${data?.title.replaceAll(" ", "-")}`}>
       <img
-        src={"https://opportunity.run-ap-south1.goorm.site" + data.image}
+        src={"https://opportunity.run-ap-south1.goorm.io" + data.image}
         alt=""
         className="h-56 w-full rounded-md object-contain"
       />

@@ -19,7 +19,7 @@ const Login = ({set1}) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email:email, password: pass})
         }
-        const response=await fetch('https://opportunity.run-ap-south1.goorm.site/admin/login', options)
+        const response=await fetch('https://opportunity.run-ap-south1.goorm.io/admin/login', options)
         const data=await response.json();
        
         setError(data)
